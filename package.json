@@ -12,6 +12,10 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "facebook-events-by-location": "^0.7.0",
+    "fb": "^2.0.0",
+    "forever-monitor": "^1.7.1",
+    "mongoose": "^4.10.7",
     "pg": "^6.2.4"
   }
 }

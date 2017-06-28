@@ -4,7 +4,11 @@ var path = require( 'path' );
 var bodyParser = require( 'body-parser' );
 var pg = require( 'pg' );
 var port = process.env.PORT || 4555;
+var facebook = require('./modules/routes/facebook');
+var gmap = require('./modules/routes/gmaps');
 
+app.use( '/access', facebook);
+app.use( '/gmap', gmap);
 app.use( express.static( 'public' ) );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
@@ -15,9 +19,4 @@ app.listen( port, function(){
 app.get('/', function(req, res){
   console.log('URL hit');
   res.sendFile( path.resolve( 'public/view/index.html' ) );
-});
-
-app.get('/gettingStarted', function(req, res){
-  console.log('URL hit');
-  res.sendFile( path.resolve( 'public/view/gettingStarted.html' ) );
 });

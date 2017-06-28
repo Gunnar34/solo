@@ -1,0 +1,29 @@
+<div class="input-field col s4">
+    <input ng-model="bc.location" id="location" type="text" class="validate">
+    <label for="location">Enter Address</label>
+</div>
+<button class="btn" ng-click="bc.getLocation()">Find Events</button>
+
+<div class="container">
+  <div class="row">
+    <div id="fbEvent" class="col s6 hoverable container" ng-repeat="x in bc.events" ng-click="bc.togglePannel($index)">
+        <div ng-show="x.eventPannel">
+          <h4 class="center-align">{{x.name}}</h4>
+          <p class="center-align">{{x.category}}</p>
+          <img class="eventImg" ng-src="{{x.coverPicture}}" alt=""></img>
+          <p class="center-align">attending: {{x.stats.attending}}  maybe: {{x.stats.maybe}}</p>
+          <p class="center-align">Starts At: {{x.startTime}}</p>
+          <p class="center-align">Ends At: {{x.endTime}}</p>
+        </div>
+        <div ng-hide="x.eventPannel" class="fbDesc">
+          <h2 class="center-align">Description</h2>
+          <p class="center-align">{{x.description}}</p>
+          <a href="https://www.facebook.com/events/{{x.id}}" target="_blank"><p class="center-align">More Info...</p></a>
+          <h3 class="center-align">Location</h3>
+          <a ng-href="http://maps.google.com/?q={{x.venue.location.city}}+{{x.venue.location.street}}+{{x.venue.location.zip}}"
+          target="_blank"><p class="center-align">{{x.venue.location.street}}, {{x.venue.location.city}}, {{x.venue.location.zip}}</p></a>
+          <div class="center-align"><button class="btn blue lighten 2" name="button">Save</button></div>
+        </div>
+    </div>
+  </div>
+</div>

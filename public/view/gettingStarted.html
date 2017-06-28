@@ -1,75 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="vendors/jquery-3.2.1.min.js" charset="utf-8"></script>
-    <script src="vendors/angular.min.js" charset="utf-8"></script>
-    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
-    <script src="scripts/script.js" charset="utf-8"></script>
-    <title></title>
-  </head>
+<div class="card-panel teal lighten-5">
+    <h1 id="title">What's dateNite?</h1>
+</div>
+<div class="parallax-container">
+    <div parallax class="parallax"><img class="parallax" src="images/cityscape.jpg"></div>
+</div>
 
-<body ng-app="materializeApp" ng-controller="bodyController as bc">
 
-  <header ng-show="bc.showMenu">
-    <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav" data-sidenav="left" data-closeonclick="false"><i
-            class="mdi-navigation-menu"></i></a></div>
-    <ul id="nav-mobile" class="side-nav fixed">
-        <li class="bold"><a href="/" class="waves-effect waves-teal">Home Page</a></li>
-        <li class="bold"><a href="/gettingStarted" class="waves-effect waves-teal">Getting started</a></li>
-
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header waves-effect waves-teal active">Event Planning</a>
-                    <div class="collapsible-body">
-                        <ul>
-                          <li><a href="#">Facebook Events</a></li>
-                          <li><a href="#">City Pages Events</a></li>
-                          <li><a href="#">Places to Hike</a></li>
-                          <li><a href="#">Resturaunts</a></li>
-                          <li><a href="#">Saved Events</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header waves-effect waves-teal active">Account Info</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#">Connect Goolge</a></li>
-                            <li><a href="#">Connect Facebook</a></li>
-                            <li><a href="#">Account Info</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-    </ul>
-  </header>
-
-    <main>
-
-    <div class="card-panel hoverable teal lighten-5 z-depth-5">
-      <div class="section center-align card-panel z-depth-5 teal lighten-2" id="index-banner">
-          <h1 class="header center-on-small-only" id="banner">dateNite</h1>
-      </div>
-      <div class="center-align">
-            <button ng-click="bc.displayMenu()" class="top-nav btn waves-effect waves-light"  name="button"><i class="material-icons">menu</i></button>
-        </div>
+<div class="card-panel teal lighten-5">
+    <h3>• dateNite is an interactive app developed to improve your night out.</h3>
+    <h3>• dateNite will take your input and help you to locate: </h3>
+    <div id="listContainer" class="teal lighten-3 z-depth-5">
+      <ol id=list1>
+        <li>Events near you</li>
+        <li>Resturaunts near you or the event</li>
+        <li>Hiking trails in the surrounding area</li>
+        <li>concerts and art exhibits</li>
+      </ol>
     </div>
 
-
-    </main>
-
-  </body>
-</html>
+</div>
