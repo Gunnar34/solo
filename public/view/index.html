@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <script src="vendors/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="vendors/angular.min.js" charset="utf-8"></script>
@@ -15,15 +16,13 @@
     <script src="scripts/controllers/FBcontroller.js" charset="utf-8"></script>
     <script src="scripts/services/FbService.js" charset="utf-8"></script>
     <script src="scripts/services/locationService.js" charset="utf-8"></script>
+    <script src="scripts/services/userService.js" charset="utf-8"></script>
     <title></title>
   </head>
 
 <body ng-app="materializeApp" ng-controller="bodyController as bc">
 
-  <header ng-show="bc.showMenu"> <!-- start side nav -->
-    <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav" data-sidenav="left" data-closeonclick="false"><i
-            class="mdi-navigation-menu"></i></a></div>
-    <ul id="nav-mobile" class="side-nav fixed">
+    <ul id="nav-mobile" class="side-nav">
         <li class="bold"><a href="/" class="waves-effect waves-teal">Home Page</a></li>
         <li class="bold"><a href="#!gettingStarted" class="waves-effect waves-teal">Getting started</a></li>
 
@@ -34,8 +33,7 @@
                         <ul>
                             <li><a href="#!facebook">Facebook Events</a></li>
                             <li><a href="#">Concerts</a></li>
-                            <li><a href="#">Places to Hike</a></li>
-                            <li><a href="#">Resturaunts</a></li>
+                            <li><a href="#">Places</a></li>
                             <li><a href="#">Saved Events</a></li>
                         </ul>
                     </div>
@@ -51,7 +49,7 @@
                             <li><a href="#">Connect Goolge</a></li>
                             <li><a href="#">Connect Facebook</a></li>
                             <li><a href="#">Account Info</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a ng-click="bc.logout()" href="#!">Logout</a></li>
                         </ul>
                     </div>
                 </li>
@@ -59,16 +57,25 @@
         </li>
 
     </ul>
-  </header> <!-- end side nav -->
+
   <main>
 
-  <div class="card-panel teal lighten-5 z-depth-5">
-    <div class="section center-align card-panel z-depth-5 teal lighten-2" id="index-banner"> <!-- top banner -->
+  <div ng-cloak class="card-panel teal lighten-5 z-depth-5 row">
+    <div id="menuDiv" class="col s1 valign-wrapper"> <!-- side nav toggle button -->
+        <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="250" data-closeonclick="true">
+        <i class="medium material-icons">menu</i></a>
+    </div>
+    <div class="section center-align card-panel z-depth-5 teal lighten-2 col s10" id="index-banner"> <!-- top banner -->
         <h1 class="header center-on-small-only" id="banner">dateNite</h1>
     </div>
-    <div class="center-align"> <!-- side nav toggle button -->
-          <button ng-click="bc.displayMenu()" class="top-nav btn waves-effect waves-light"  name="button"><i class="material-icons">menu</i></button>
-      </div>
+    <div class="col s1 right-align" ng-if="bc.loggedIn == 'false' || bc.loggedIn == undefined">
+        <a href="#!login"><span>Login</span></a>
+        <br>
+        <a href="#!register"><span>Register</span></a>
+    </div>
+    <div ng-if="bc.loggedIn == 'true'" class="col s1 right-align">
+      <span>Welcome Back </span> <br> <p>{{bc.userNameStored | uppercase}}</p>
+    </div>
   </div> <!-- end hoverable -->
 
   </main>
@@ -77,4 +84,14 @@
 
   </body>
 
+  <div class="spacer"></div>
+
+  <footer class="page-footer teal lighten-4">
+    <div class="footer-copyright">
+      <div class="container">
+      © 2017 Noah Rolf
+      <p class="grey-text text-lighten-4 right">DateNite</p>
+      </div>
+    </div>
+  </footer>
 </html>

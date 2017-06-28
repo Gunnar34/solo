@@ -6,8 +6,10 @@ app.controller('facebookController', facebookController);
     var lon;
     vm.events = [];
     vm.showMenu = false;
+    vm.loading = false;
 
     vm.init = function(){
+      vm.loading = true;
       FbService.getAccess();
       navigator.geolocation.getCurrentPosition(findLocation);
     }; //pageload function
@@ -34,12 +36,15 @@ app.controller('facebookController', facebookController);
         lon = -93.258133;
         }
       FbService.getEvents(time, lat, lon).then(function(res){
+        vm.loading = false;
         vm.events = res;
         console.log(res);
         });
     }; //get facebook events with service and API get
 
     vm.getLocation = function(){
+      vm.loading = true;
+      vm.events = [];
       locService.getKey().then(function(res){
         var address = vm.location;
         vm.location = '';

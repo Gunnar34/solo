@@ -3,7 +3,9 @@
     <label for="location">Enter Address</label>
 </div>
 <button class="btn" ng-click="fb.getLocation()">Find Events</button>
-
+<div ng-if="fb.loading" class="container center-align">
+  <img src="https://s-media-cache-ak0.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" alt="">
+</div>
 <div class="container">
   <div class="row">
     <div id="fbEvent" class="col s6 hoverable container" ng-repeat="x in fb.events" ng-click="fb.togglePannel($index)">
@@ -18,12 +20,15 @@
         <div ng-hide="x.eventPannel" class="fbDesc">
           <h2 class="center-align">Description</h2>
           <p class="center-align">{{x.description}}</p>
-          <a href="https://www.facebook.com/events/{{x.id}}" target="_blank"><p class="center-align">More Info...</p></a>
+          <p class="center-align"><a href="https://www.facebook.com/events/{{x.id}}" target="_blank"><span>More Info...</span></a></p>
           <h3 class="center-align">Location</h3>
-          <a ng-href="http://maps.google.com/?q={{x.venue.location.city}}+{{x.venue.location.street}}+{{x.venue.location.zip}}"
-          target="_blank"><p class="center-align">{{x.venue.location.street}}, {{x.venue.location.city}}, {{x.venue.location.zip}}</p></a>
+          <p class="center-align"><a ng-href="http://maps.google.com/?q={{x.venue.location.city}}+{{x.venue.location.street}}+{{x.venue.location.zip}}"
+          target="_blank"><span>{{x.venue.location.street}}, {{x.venue.location.city}}, {{x.venue.location.zip}}</span></a></p>
           <div class="center-align"><button class="btn blue lighten 2" name="button">Save</button></div>
         </div>
     </div>
   </div>
+</div>
+<div ng-if="fb.loading" class="spacer">
+
 </div>

@@ -41,3 +41,62 @@
 .fbDesc {
   padding: 10px;
 }
+
+.spacer {
+  height: 55px;
+}
+
+#menuDiv {
+  height: 150px;
+}
+
+/*below is the css for login page*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+
+.loginBody {
+  background: #999;
+  padding: 40px;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+#bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/cityscape.jpg') no-repeat center center fixed;
+  background-size: cover;
+  -webkit-filter: blur(5px);
+}
+
+#loginForm {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px 22px;
+  border: 1px solid;
+}
+
+#loginForm input {
+  width: 212px;
+  border: 1px solid;
+  padding: 8px 24px 8px 10px;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  margin-bottom: 19px;
+  margin-top: 10px;
+}
+
+#loginForm input:focus { background-color: rgba(0,0,0,.4); }
+
+::-webkit-input-placeholder { color: #ccc; text-transform: uppercase; }
+::-moz-placeholder { color: #ccc; text-transform: uppercase; }
+:-ms-input-placeholder { color: #ccc; text-transform: uppercase; }
+
+#loginButton {
+  width: 250px;
+  margin-bottom: 0;
+  cursor: pointer;
+}

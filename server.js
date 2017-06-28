@@ -6,7 +6,11 @@ var pg = require( 'pg' );
 var port = process.env.PORT || 4555;
 var facebook = require('./modules/routes/facebook');
 var gmap = require('./modules/routes/gmaps');
+var register = require('./modules/routes/register');
+var login = require('./modules/routes/login');
 
+app.use('/login', login);
+app.use('/register', register);
 app.use( '/access', facebook);
 app.use( '/gmap', gmap);
 app.use( express.static( 'public' ) );

@@ -1,0 +1,17 @@
+<div class=loginBody>
+  <div id="bg">  </div>
+        <div class="center-align" id="loginForm" >
+
+          <a id="backLink" href="#!">Back</a>
+
+          <input type="text" ng-model="bc.logUsername" placeholder="Username" >
+
+          <div input-field>
+            <input type="password" ng-model="bc.logPassword" placeholder="Password" >
+            <label ng-show="bc.wrong">Incorrect Username or Password</label>
+          </div>
+
+          <button id="loginButton" ng-click="bc.logIn()" class="btn" type="button">login</button>
+
+        </div>
+</div>
