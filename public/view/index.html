@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="vendors/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+    <script src="scripts/script.js" charset="utf-8"></script>
+    <title></title>
+  </head>
+
+<body ng-app="materializeApp" ng-controller="bodyController as bc">
+
+  <header ng-show="bc.showMenu"> <!-- start side nav -->
+    <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav" data-sidenav="left" data-closeonclick="true"><i
+            class="mdi-navigation-menu"></i></a></div>
+    <ul id="nav-mobile" class="side-nav fixed">
+        <li class="bold"><a href="/" class="waves-effect waves-teal">Home Page</a></li>
+        <li class="bold"><a href="/gettingStarted" class="waves-effect waves-teal">Getting started</a></li>
+
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header waves-effect waves-teal active">Event Planning</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#">Facebook Events</a></li>
+                            <li><a href="#">City Pages Events</a></li>
+                            <li><a href="#">Places to Hike</a></li>
+                            <li><a href="#">Resturaunts</a></li>
+                            <li><a href="#">Saved Events</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header waves-effect waves-teal active">Account Info</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#">Connect Goolge</a></li>
+                            <li><a href="#">Connect Facebook</a></li>
+                            <li><a href="#">Account Info</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+  </header> <!-- end side nav -->
+  <main>
+
+  <div class="card-panel hoverable teal lighten-5 z-depth-5">
+    <div class="section center-align card-panel z-depth-5 teal lighten-2" id="index-banner"> <!-- top banner -->
+        <h1 class="header center-on-small-only" id="banner">dateNite</h1>
+    </div>
+    <div class="center-align"> <!-- side nav toggle button -->
+          <button ng-click="bc.displayMenu()" class="top-nav btn waves-effect waves-light"  name="button"><i class="material-icons">menu</i></button>
+      </div>
+  </div> <!-- end hoverable -->
+
+  <div class="slider" slider>
+    <ul class="slides">
+        <li>
+            <img src="/images/river.jpg">
+            <div class="caption center-align">
+                <h3>Whats dateNite!?</h3>
+                <h5 class="light grey-text text-lighten-3">A simple app for planning your niteOut.</h5>
+            </div>
+        </li>
+        <li>
+            <img src="/images/bike.jpg">
+            <div class="caption left-align">
+                <h3>Tired of trying to pick dates?</h3>
+                <h5 class="light grey-text text-lighten-3">That's where we come in!</h5>
+            </div>
+        </li>
+        <li>
+                <img src="/images/dinner.jpg">
+                <div class="caption right-align">
+            <h3>Somehow too many choices AND not enough options?</h3>
+            <h5 class="light grey-text text-lighten-3">We can help you pick AND find!</h5>
+            </div>
+        </li>
+        <li>
+            <img src="/images/concert.jpg">
+            <div class="caption center-align">
+                <h3>Your adventure awaits</h3>
+                <h5 class="light grey-text text-lighten-3">Theres always something to do if you're willing to try</h5>
+            </div>
+        </li>
+    </ul>
+  </div> <!-- end slides -->
+
+  </main>
+
+  </body>
+</html>

@@ -1,17 +1,21 @@
-//angular module
-var app = angular.module('myApp', ['ui.materialize', 'ngRoute']);
+var app = angular.module('materializeApp', ['ui.materialize']);
 
-//routes
-app.config(function ($routeProvider){
-  $routeProvider.when('/', {
-    templateUrl: 'view/partials/home.html'
-  });
-});
+// app.config(function ($routeProvider){
+//   $routeProvider.when('/', {
+//     templateUrl: 'view/home.html',
+//     controller: 'bodyController as bc'
+//   }).when('/gettingStarted', {
+//     templateUrl: 'view/gettingStarted.html',
+//     controller: 'bodyController as bc'
+//   });
+// });
 
-//main controller
-app.controller('mainController', mainController);
-
-function mainController(){
+app.controller('bodyController', function () {
   var vm = this;
-  
-}
+  vm.showMenu = false;
+
+  vm.displayMenu = function(){
+    vm.showMenu = !vm.showMenu;
+  };
+
+});
