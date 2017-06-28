@@ -18,5 +18,10 @@
     "forever-monitor": "^1.7.1",
     "mongoose": "^4.10.7",
     "pg": "^6.2.4"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^3.0.1"
   }
 }

@@ -1,4 +1,4 @@
-var app = angular.module('materializeApp', ['ui.materialize', 'ngRoute']);
+var app = angular.module('myApp', ['ui.materialize', 'ngRoute']);
 
 app.config(function ($routeProvider){
   $routeProvider.when('/', {
