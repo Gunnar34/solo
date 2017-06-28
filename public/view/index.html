@@ -12,12 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
     <script src="vendors/date.format.js" charset="utf-8"></script>
     <script src="scripts/script.js" charset="utf-8"></script>
+    <script src="scripts/controllers/FBcontroller.js" charset="utf-8"></script>
     <script src="scripts/services/FbService.js" charset="utf-8"></script>
     <script src="scripts/services/locationService.js" charset="utf-8"></script>
     <title></title>
   </head>
 
-<body ng-app="materializeApp" ng-controller="bodyController as bc" ng-init="bc.init()">
+<body ng-app="materializeApp" ng-controller="bodyController as bc">
 
   <header ng-show="bc.showMenu"> <!-- start side nav -->
     <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav" data-sidenav="left" data-closeonclick="false"><i
@@ -70,9 +71,10 @@
       </div>
   </div> <!-- end hoverable -->
 
-  <ng-view></ng-view>
-
   </main>
 
+  <ng-view></ng-view>
+
   </body>
+
 </html>

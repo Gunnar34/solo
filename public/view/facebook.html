@@ -1,12 +1,12 @@
 <div class="input-field col s4">
-    <input ng-model="bc.location" id="location" type="text" class="validate">
+    <input ng-model="fb.location" id="location" type="text" class="validate">
     <label for="location">Enter Address</label>
 </div>
-<button class="btn" ng-click="bc.getLocation()">Find Events</button>
+<button class="btn" ng-click="fb.getLocation()">Find Events</button>
 
 <div class="container">
   <div class="row">
-    <div id="fbEvent" class="col s6 hoverable container" ng-repeat="x in bc.events" ng-click="bc.togglePannel($index)">
+    <div id="fbEvent" class="col s6 hoverable container" ng-repeat="x in fb.events" ng-click="fb.togglePannel($index)">
         <div ng-show="x.eventPannel">
           <h4 class="center-align">{{x.name}}</h4>
           <p class="center-align">{{x.category}}</p>
