@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.materialize', 'ngRoute']);
+var app = angular.module('myApp', ['ui.materialize', 'ngRoute', 'ngEasyCal']);
 
 app.config(function ($routeProvider){
   $routeProvider.when('/', {
@@ -12,6 +12,9 @@ app.config(function ($routeProvider){
   }).when('/facebook', {
     templateUrl: 'view/partials/facebook.html',
     controller: 'facebookController as fb'
+  }).when('/saved', {
+    templateUrl: 'view/partials/saved.html',
+    controller: 'calendarController as cc'
   });
 });
 

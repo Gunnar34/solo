@@ -3,21 +3,26 @@
   <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="styles/ng-easy-cal.css">
     <link rel="stylesheet" href="styles/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="build/app.min.js" charset="utf-8"></script>
-    <!-- <script src="vendors/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <!-- <script src="build/app.min.js" charset="utf-8"></script> -->
+    <script src="vendors/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="vendors/angular-route.min.js" charset="utf-8"></script>
     <script src="vendors/materialize.min.js"></script>
     <script src="vendors/angular-materialize.min.js"></script>
     <script src="vendors/date.format.js" charset="utf-8"></script>
+    <script src="vendors/ng-easy-cal.js" charset="utf-8"></script>
+    <script src="vendors/moment.min.js" charset="utf-8"></script>
     <script src="scripts/script.js" charset="utf-8"></script>
     <script src="scripts/controllers/FBcontroller.js" charset="utf-8"></script>
+    <script src="scripts/controllers/calendarController.js" charset="utf-8"></script>
+    <script src="scripts/services/calendarService.js" charset="utf-8"></script>
     <script src="scripts/services/FbService.js" charset="utf-8"></script>
     <script src="scripts/services/locationService.js" charset="utf-8"></script>
-    <script src="scripts/services/userService.js" charset="utf-8"></script> -->
+    <script src="scripts/services/userService.js" charset="utf-8"></script>
     <title></title>
   </head>
 
@@ -35,7 +40,7 @@
                             <li><a href="#!facebook">Facebook Events</a></li>
                             <li><a href="#">Concerts</a></li>
                             <li><a href="#">Places</a></li>
-                            <li><a href="#">Saved Events</a></li>
+                            <li><a href="#!saved">Saved Events</a></li>
                         </ul>
                     </div>
                 </li>
@@ -61,31 +66,29 @@
 
   <main>
 
-  <div ng-cloak class="card-panel teal lighten-5 z-depth-5 row">
-    <div id="menuDiv" class="col s1 valign-wrapper"> <!-- side nav toggle button -->
-        <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="250" data-closeonclick="true">
-        <i class="medium material-icons">menu</i></a>
-    </div>
-    <div class="section center-align card-panel z-depth-5 teal lighten-2 col s10" id="index-banner"> <!-- top banner -->
-        <h1 class="header center-on-small-only" id="banner">dateNite</h1>
-    </div>
-    <div class="col s1 right-align" ng-if="bc.loggedIn == 'false' || bc.loggedIn == undefined">
-        <a href="#!login"><span>Login</span></a>
-        <br>
-        <a href="#!register"><span>Register</span></a>
-    </div>
-    <div ng-if="bc.loggedIn == 'true'" class="col s1 right-align">
-      <span>Welcome Back </span> <br> <p>{{bc.userNameStored | uppercase}}</p>
-    </div>
-  </div> <!-- end hoverable -->
+    <div ng-cloak class="card-panel teal lighten-5 z-depth-5 row">
+      <div id="menuDiv" class="col s1 valign-wrapper"> <!-- side nav toggle button -->
+          <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="250" data-closeonclick="true">
+          <i class="medium material-icons">menu</i></a>
+      </div>
+      <div class="section center-align card-panel z-depth-5 teal lighten-2 col s10" id="index-banner"> <!-- top banner -->
+          <h1 class="header center-on-small-only" id="banner">dateNite</h1>
+      </div>
+      <div class="col s1 right-align" ng-if="bc.loggedIn == 'false' || bc.loggedIn == undefined">
+          <a href="#!login"><span>Login</span></a>
+          <br>
+          <a href="#!register"><span>Register</span></a>
+      </div>
+      <div ng-if="bc.loggedIn == 'true'" class="col s1 right-align">
+        <span>Welcome Back </span> <br> <span>{{bc.userNameStored}}!</span>
+      </div>
+    </div> <!-- end hoverable -->
 
   </main>
 
   <ng-view></ng-view>
 
   </body>
-
-  <div class="spacer"></div>
 
   <footer class="page-footer teal lighten-4">
     <div class="footer-copyright">

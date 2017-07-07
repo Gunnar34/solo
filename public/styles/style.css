@@ -100,3 +100,17 @@
   margin-bottom: 0;
   cursor: pointer;
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+.saved {
+  background-color: #90caf9;
+}

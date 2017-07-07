@@ -8,7 +8,9 @@ var facebook = require('./modules/routes/facebook');
 var gmap = require('./modules/routes/gmaps');
 var register = require('./modules/routes/register');
 var login = require('./modules/routes/login');
+var events = require('./modules/routes/events');
 
+app.use('/events', events);
 app.use('/login', login);
 app.use('/register', register);
 app.use( '/access', facebook);
