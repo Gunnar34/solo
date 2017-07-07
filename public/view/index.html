@@ -24,6 +24,8 @@
     <script src="scripts/services/locationService.js" charset="utf-8"></script>
     <script src="scripts/services/userService.js" charset="utf-8"></script>
     <title></title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   </head>
 
 <body ng-app="myApp" ng-controller="bodyController as bc">
@@ -66,12 +68,12 @@
 
   <main>
 
-    <div ng-cloak class="card-panel teal lighten-5 z-depth-5 row">
+    <div ng-cloak id="headPannel" class="card-panel teal lighten-5 z-depth-5 row">
       <div id="menuDiv" class="col s1 valign-wrapper"> <!-- side nav toggle button -->
           <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="250" data-closeonclick="true">
           <i class="medium material-icons">menu</i></a>
       </div>
-      <div class="section center-align card-panel z-depth-5 teal lighten-2 col s10" id="index-banner"> <!-- top banner -->
+      <div id="head2Pannel" class="section center-align card-panel z-depth-5 teal lighten-2 col s10" id="index-banner"> <!-- top banner -->
           <h1 class="header entangled" id="banner">DateNite</h1>
       </div>
       <div class="col s1 right-align" ng-if="bc.loggedIn == 'false' || bc.loggedIn == undefined">
@@ -80,7 +82,7 @@
           <a href="#!register"><span>Register</span></a>
       </div>
       <div ng-if="bc.loggedIn == 'true'" class="col s1 right-align">
-        <span>Welcome Back </span> <br> <span>{{bc.userNameStored}}!</span>
+        <span class="left">Logged In as:</span> <br> <span class="left">{{bc.userNameStored}}</span>
       </div>
     </div> <!-- end hoverable -->
 
