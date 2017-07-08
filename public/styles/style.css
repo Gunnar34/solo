@@ -1,7 +1,53 @@
+html {
+  font-family: 'Montserrat';
+}
+
+.slider .slides{
+  height: 75vh !important;
+}
+.slider .slides li img {
+  height: 75vh !important;
+}
+
 #banner {
-  font-family: 'Montserrat', sans-serif;
-  font-style: italic;
+  height: 20vh;
+}
+
+#banner2 {
+  height: 15vh;
+  text-align: center;
+}
+
+.menuItem {
+  font-size: 24px;
+}
+
+#nav-mobile {
+  background-color: #80cbc4;
+}
+
+.nav {
+  margin: 20px;
+}
+
+.nav2 {
+  background-color: #e0f2f1;
+}
+
+#header {
   color: white;
+  text-align: center;
+}
+
+.topButton {
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 36px;
+}
+
+#menuID {
+  height: inherit;
 }
 
 .slide {
@@ -28,15 +74,6 @@ blockquote{
 
 #list1 {
   font-size: 28px;
-  font-family: 'Montserrat'
-}
-
-#title {
-  font-family: 'Montserrat';
-}
-
-#about {
-  font-family: 'Montserrat';
 }
 
 .eventImg {
@@ -59,24 +96,6 @@ blockquote{
   padding: 10px;
 }
 
-.spacer {
-  height: 25px;
-}
-
-#menuDiv {
-  height: 150px;
-}
-
-/*below is the css for login page*/
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
-
-.loginBody {
-  background: #999;
-  padding: 40px;
-  font-family: "Open Sans Condensed", sans-serif;
-}
-
 #bg {
   position: fixed;
   left: 0;
@@ -89,15 +108,17 @@ blockquote{
 }
 
 #loginForm {
-  position: relative;
-  width: 300px;
+  position: fixed;
+  top: 30vh;
+  left: 30vw;
+  width: 500px;
   margin: 0 auto;
   padding: 20px 22px;
   border: 1px solid;
 }
 
 #loginForm input {
-  width: 212px;
+  width: 300px;
   border: 1px solid;
   padding: 8px 24px 8px 10px;
   color: #fff;
@@ -106,11 +127,9 @@ blockquote{
   margin-top: 10px;
 }
 
-#loginForm input:focus { background-color: rgba(0,0,0,.4); }
-
-::-webkit-input-placeholder { color: #ccc; text-transform: uppercase; }
-::-moz-placeholder { color: #ccc; text-transform: uppercase; }
-:-ms-input-placeholder { color: #ccc; text-transform: uppercase; }
+#loginForm input:focus {
+  background-color: rgba(0,0,0,.4);
+}
 
 #loginButton {
   width: 250px;
@@ -118,20 +137,79 @@ blockquote{
   cursor: pointer;
 }
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+#backLink {
+  font-size: 18px;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+#backLink:hover {
+  text-decoration: underline;
+}
 
 .saved {
   background-color: #90caf9;
 }
 
 .load {
-  height: 45vh;
+  height: 52vh;
+}
+
+#foot {
+  height: 12vh;
+}
+
+@media screen and (max-width: 990px) {
+  #banner {
+    height: 18vh;
+  }
+  #banner2 {
+    height: 12vh;
+    text-align: center;
+  }
+  .loggedIn{
+    height: 12vh;
+    font-size: 32px;
+  }
+  #menuIcon {
+    font-size: 180px;
+  }
+  #header {
+    font-size: 96px;
+  }
+  .topButton {
+    padding: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 46px;
+  }
+  #loginForm {
+    left: 20vw;
+    height: 35vh;
+    width: 60vw;
+  }
+  #loginForm input {
+    width: 50vw;
+    height: 5vh;
+    font-size: 36px;
+    text-align: center;
+  }
+  #loginButton {
+    width: 45vw;
+    height: 6vh;
+    font-size: 36px;
+  }
+  #backLink {
+    font-size: 48px;
+  }
+  blockquote {
+    font-size: 18px;
+  }
+  .slideText {
+    font-size: 104px !important;
+  }
+  .slideText2 {
+    font-size: 74px !important;
+  }
+  .menuItem {
+    font-size: 42px;
+  }
 }

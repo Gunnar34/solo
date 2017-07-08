@@ -31,33 +31,33 @@
 <body ng-app="myApp" ng-controller="bodyController as bc">
 
     <ul id="nav-mobile" class="side-nav">
-        <li class="bold"><a href="/" class="waves-effect waves-teal">Home Page</a></li>
-        <li class="bold"><a href="#!gettingStarted" class="waves-effect waves-teal">Getting started</a></li>
+        <li class="nav bold"><a href="/" class="waves-effect waves-teal"><span class="menuItem">Home Page</span></a></li>
+        <li class="nav bold"><a href="#!gettingStarted" class="waves-effect waves-teal"><span class="menuItem">Getting started</span></a></li>
 
-        <li class="no-padding">
+        <li class="nav no-padding">
             <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header waves-effect waves-teal active">Event Planning</a>
+                <li class="bold"><a class="collapsible-header waves-effect waves-teal active"><span class="menuItem">Event Planning</span></a>
                     <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#!facebook">Facebook Events</a></li>
-                            <li><a href="#">Concerts</a></li>
-                            <li><a href="#">Places</a></li>
-                            <li><a href="#!saved">Saved Events</a></li>
+                        <ul class="nav2">
+                            <li><a href="#!facebook"><span class="menuItem">Facebook Events</span></a></li>
+                            <li><a href="#"><span class="menuItem">Concerts</span></a></li>
+                            <li><a href="#"><span class="menuItem">Places</span></a></li>
+                            <li><a href="#!saved"><span class="menuItem">Saved Events</span></a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </li>
 
-        <li class="no-padding">
+        <li class="nav no-padding">
             <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header waves-effect waves-teal active">Account Info</a>
+                <li class="bold"><a class="collapsible-header waves-effect waves-teal active"><span class="menuItem">Account Info</span></a>
                     <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#">Connect Goolge</a></li>
-                            <li><a href="#">Connect Facebook</a></li>
-                            <li><a href="#">Account Info</a></li>
-                            <li><a ng-click="bc.logout()" href="#!">Logout</a></li>
+                        <ul class="nav2">
+                            <li><a href="#"><span class="menuItem">Connect Goolge</span></a></li>
+                            <li><a href="#"><span class="menuItem">Connect Facebook</span></a></li>
+                            <li><a href="#"><span class="menuItem">Account Info</span></a></li>
+                            <li><a ng-click="bc.logout()" href="#!"><span class="menuItem">Logout</span></a></li>
                         </ul>
                     </div>
                 </li>
@@ -66,38 +66,38 @@
 
     </ul>
 
+    <div ng-cloak id="banner" class="row card teal lighten-4 valign-wrapper">
+      <div id="menuID" class="col l2 s3 valign-wrapper">
+        <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="350" data-closeonclick="true">
+        <p><i id="menuIcon" class="large material-icons">menu</i></p></a>
+      </div>
+      <div id="banner2" class="z-depth-5 teal lighten-2 col l8 s6 center-align">
+        <h1 id="header">DateNite</h1>
+      </div>
+      <div class="loggedIn col l2 s3 center-align" ng-if="bc.loggedIn == 'false' || bc.loggedIn == undefined">
+        <a href="#!login"><p class="topButton">Login</p></a>
+        <a href="#!register"><p class="topButton">Register</p></a>
+      </div>
+      <div class="loggedIn col l2 s3 center-align" ng-if="bc.loggedIn == 'true'">
+        <p>Logged In as:</p>
+        <p>{{bc.userNameStored}}</p>
+      </div>
+    </div>
+
+
   <main>
-
-    <div ng-cloak id="headPannel" class="card-panel teal lighten-5 z-depth-5 row">
-      <div id="menuDiv" class="col s1 valign-wrapper"> <!-- side nav toggle button -->
-          <a href="#" class="button-collapse" data-activates="nav-mobile" data-sidenav="left" data-menuwidth="250" data-closeonclick="true">
-          <i class="medium material-icons">menu</i></a>
-      </div>
-      <div id="head2Pannel" class="section center-align card-panel z-depth-5 teal lighten-2 col s10" id="index-banner"> <!-- top banner -->
-          <h1 class="header entangled" id="banner">DateNite</h1>
-      </div>
-      <div class="col s1 right-align" ng-if="bc.loggedIn == 'false' || bc.loggedIn == undefined">
-          <a href="#!login"><span>Login</span></a>
-          <br>
-          <a href="#!register"><span>Register</span></a>
-      </div>
-      <div ng-if="bc.loggedIn == 'true'" class="col s1 right-align">
-        <span class="left">Logged In as:</span> <br> <span class="left">{{bc.userNameStored}}</span>
-      </div>
-    </div> <!-- end hoverable -->
-
+    <ng-view></ng-view>
   </main>
 
-  <ng-view></ng-view>
-
-  </body>
-
-  <footer class="page-footer teal lighten-4">
+  <!-- <footer id="foot" class="page-footer teal lighten-4">
     <div class="footer-copyright">
       <div class="container">
       © 2017 Noah Rolf
       <p class="grey-text text-lighten-4 right">DateNite</p>
       </div>
     </div>
-  </footer>
+  </footer> -->
+
+  </body>
+
 </html>
