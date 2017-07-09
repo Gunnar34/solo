@@ -24,18 +24,14 @@ app.service('FbService', function($http) {
       var data = [];
       for (var i = 0; i < res.data.events.length; i++) {
         res.data.events[i].startTimeDisplay = res.data.events[i].startTime;
-        res.data.events[i].startTimeDisplay = (dateFormat(res.data.events[i].startTimeDisplay, "dddd, mmmm dS, yyyy, h:MM:ss TT"));
+        res.data.events[i].startTimeDisplay = (dateFormat(res.data.events[i].startTimeDisplay, "dddd, mmmm dS, yyyy, h:MM TT"));
         res.data.events[i].endTimeDisplay = res.data.events[i].endTime;
-        res.data.events[i].endTimeDisplay = (dateFormat(res.data.events[i].endTimeDisplay, "dddd, mmmm dS, yyyy, h:MM:ss TT"));
+        res.data.events[i].endTimeDisplay = (dateFormat(res.data.events[i].endTimeDisplay, "dddd, mmmm dS, yyyy, h:MM TT"));
         if (res.data.events[i].category === null) {
           res.data.events[i].category = 'unknown';
         }
         if (res.data.events[i].description === null) {
           res.data.events[i].description = "Sorry there's no description for this event.";
-        }
-        if (res.data.events[i].description.length > 1235) {
-          res.data.events[i].description = res.data.events[i].description.substring(0, 1235);
-          res.data.events[i].description += '...';
         }
         res.data.events[i].category = res.data.events[i].category.replace("_", " ");
         res.data.events[i].eventPannel = true;

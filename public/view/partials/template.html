@@ -1,11 +1,7 @@
  <div ng-show="popover.show"
 	     class="ez-popover"
          ng-style="{'position': 'fixed',
-                    'left': screenWidth - 200,
-                    'top': screenHeigth - 350,
                     'z-index': 10000,
-                    'width': 500,
-                    'height': 600,
                     'background-color': defaultPopoverBackgroundColor,
                     'color': defaultPopoverTextColor,
                     'border': defaultPopoverBorder,
@@ -16,29 +12,29 @@
 	 	</div>
 
 	 	<div class="ez-featured-image" ng-show="popover.event.image">
-	 		<img ng-src="{{popover.event.image}}">
+	 		<img class="calImg" ng-src="{{popover.event.image}}">
 	 	</div>
 	 	<div class="ez-popover-title">
-	 		<strong>{{popover.event.title}}</strong>
+	 		<h4>{{popover.event.title}}</h4>
 	 	</div>
 	 	<div class="ez-popover-times">
-	 	<span>{{formatDate(popover.event.startDate)}} - {{formatDate(popover.event.endDate)}}</span>
+	 	<span class="caltext">{{formatDate(popover.event.startDate)}} - {{formatDate(popover.event.endDate)}}</span>
 	    </div>
 	 	<div class="ez-popover-description">
-	 		<p class="">{{popover.event.description | limitTo:450 }}</p>
+	 		<p class="caltext">{{popover.event.description | limitTo:450 }}</p>
 	 	</div>
     <div class="">
       <button class="btn red" name="button" ng-click="deleteEvent()">Remove</button>
     </div>
     <div class="">
-      <p class="center-align">
+      <p class="center-align caltext">
         <a href="https://www.facebook.com/events/{{popover.event.info}}" target="_blank">
           <span>More Info...</span>
         </a>
       </p>
     </div>
     <div class="">
-      <p class="center-align">
+      <p class="center-align caltext">
         <a href="http://maps.google.com/?q={{popover.event.location.city}}{{popover.event.location.street}}{{popover.event.location.zip}}" target="_blank">
           <span>{{popover.event.location.city}} {{popover.event.location.street}} {{popover.event.location.zip}}</span>
         </a>
@@ -54,7 +50,7 @@
     <span ng-click="monthForward()"> Next ></span>
 </div>
 
-<div ng-style="{'height': ezHeight + 'px',
+<div class="calendarContainer" ng-style="{'height': ezHeight + 'px',
                 'width':  ezWidth,
                'background-color': '#FFF',
 			   'font-family': ezFont
@@ -62,7 +58,7 @@
 
      >
 
-    <div ng-style="{'width': dateWidth,
+    <div class="dateHead" ng-style="{'width': dateWidth,
                     'display': 'inline-table',
                     'text-align': 'center',
                     'border': defaultBorderColor,
@@ -76,7 +72,7 @@
                     'width':  dateWidth,
                     'border': defaultBorderColor
                 }"
-		 class="ez-calendar-day"
+		 class="ez-calendar-day dateDay"
          ng-class="{'active-date': day.isToday,
                     'out-of-month': day.nextMonth || day.previousMonth}"
          ng-repeat="day in calendarDays"

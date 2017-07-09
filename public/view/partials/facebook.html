@@ -1,44 +1,46 @@
 <div class="inputs row">
-  <div class="input-field col s6">
-      <input ng-model="fb.location" id="location" type="text" class="validate">
-      <label for="location">Enter Address</label>
+  <div class="input-field col l6 s8">
+      <input ng-model="fb.location" id="location" type="text" class="in validate">
+      <label class="inLabel" for="location">Enter Address</label>
   </div>
-  <div class="col s3">
-    <div input-field>
+  <div class="col l3 s4">
+    <div class="input-field">
       <select ng-model="fb.timeSelect" material-select>
-        <option value="" disabled selected>Choose your option</option>
-        <option value="172800" selected>Two days</option>
-        <option value="604800">One Week</option>
-        <option value="1209600">Two Weeks</option>
-        <option value="2629746">One Month</option>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="172800" selected>Two days</option>
+          <option value="604800">One Week</option>
+          <option value="1209600">Two Weeks</option>
+          <option value="2629746">One Month</option>
       </select>
-      <label for="">From Now until</label>
+      <label class="inLabel" for="">From Now until</label>
     </div>
   </div>
-  <button class="btn" ng-click="fb.getLocation()">Find Events</button>
+  <div class="col l3 s4 offset-s4 center-align">
+    <button class="in btn" ng-click="fb.getLocation()">Find Events</button>
+  </div>
 </div>
-<div ng-if="fb.loading" class="load center-align">
-  <img src="https://s-media-cache-ak0.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" alt="">
+<div ng-if="fb.loading" class="center-align">
+  <img class="load" src="https://s-media-cache-ak0.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" alt="">
 </div>
 <div class="container">
   <div class="row">
     <div id="fbEvent" class="col l6 s12 hoverable container" ng-repeat="x in fb.events" ng-click="fb.togglePannel($index)" ng-class="{saved: x.saved}">
         <div ng-show="x.eventPannel">
-          <h4 class="center-align">{{x.name}}</h4>
-          <p class="center-align">{{x.category}}</p>
+          <h4 class="eventHead center-align">{{x.name}}</h4>
+          <p class="flow-text eventText center-align">{{x.category}}</p>
           <img class="eventImg" ng-src="{{x.coverPicture}}" alt=""></img>
-          <p class="center-align">attending: {{x.stats.attending}}  maybe: {{x.stats.maybe}}</p>
-          <p class="center-align">Starts At: {{x.startTimeDisplay}}</p>
-          <p class="center-align">Ends At: {{x.endTimeDisplay}}</p>
+          <p class="flow-text eventText center-align">attending: {{x.stats.attending}}  maybe: {{x.stats.maybe}}</p>
+          <p class="flow-text eventText center-align">Starts: {{x.startTimeDisplay}}</p>
+          <p class="flow-text eventText center-align">Ends: {{x.endTimeDisplay}}</p>
         </div>
         <div ng-hide="x.eventPannel" class="fbDesc">
-          <h2 class="center-align">Description</h2>
-          <p class="center-align">{{x.description}}</p>
-          <p class="center-align"><a href="https://www.facebook.com/events/{{x.id}}" target="_blank"><span>More Info...</span></a></p>
-          <h3 class="center-align">Location</h3>
-          <p class="center-align"><a ng-href="http://maps.google.com/?q={{x.venue.location.city}}+{{x.venue.location.street}}+{{x.venue.location.zip}}"
+          <h2 class="eventHead center-align">Description</h2>
+          <p class="flow-text eventText2 center-align">{{x.description | limitTo:500}}</p>
+          <p class="flow-text link eventText2 center-align"><a href="https://www.facebook.com/events/{{x.id}}" target="_blank"><span>More Info...</span></a></p>
+          <h3 class="eventHead center-align">Location</h3>
+          <p class="flow-text link eventText2 center-align"><a ng-href="http://maps.google.com/?q={{x.venue.location.city}}+{{x.venue.location.street}}+{{x.venue.location.zip}}"
           target="_blank"><span>{{x.venue.location.street}}, {{x.venue.location.city}}, {{x.venue.location.zip}}</span></a></p>
-          <div class="center-align"><button ng-hide="x.saved" ng-click="fb.saveEvent($index)" class="btn blue lighten 2" name="button">Save</button></div>
+          <div class="center-align"><button ng-hide="x.saved" ng-click="fb.saveEvent($index)" class="save btn blue lighten 2" name="button">Save</button></div>
         </div>
     </div>
   </div>
