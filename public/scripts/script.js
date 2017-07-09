@@ -12,6 +12,9 @@ app.config(function ($routeProvider){
   }).when('/facebook', {
     templateUrl: 'view/partials/facebook.html',
     controller: 'facebookController as fb'
+  }).when('/places', {
+    templateUrl: 'view/partials/places.html',
+    controller: 'googleMapController as gm'
   }).when('/saved', {
     templateUrl: 'view/partials/saved.html',
     controller: 'calendarController as cc'

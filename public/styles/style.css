@@ -195,6 +195,15 @@ blockquote{
   border-radius: 15px;
 }
 
+#map {
+  height: 100vh;
+  width: 100vw
+}
+
+.types {
+  width: 50%
+}
+
 @media screen and (max-width: 990px) {
   #banner {
     height: 18vh;
