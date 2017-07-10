@@ -1,7 +1,6 @@
 app.service('locService', function($http) {
   var sv = this;
   var key;
-  var position;
 
   sv.getKey = function(){
   return $http.get('/gmap').then(function(res){
@@ -17,11 +16,6 @@ app.service('locService', function($http) {
         return (response.data.results[0].geometry.location);
         });
     };
-
-  sv.storeGeoLocation = function(position){
-    console.log(position);
-    position = position;
-  }
 
   // sv.getGeoLocation = function(){
   //   return navigator.geolocation.getCurrentPosition(function(position){

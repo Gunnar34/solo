@@ -196,8 +196,8 @@ blockquote{
 }
 
 #map {
-  height: 70vh;
-  width: 100vw
+  height: 100vh;
+  width: 100vw;
 }
 
 .types {
@@ -205,12 +205,34 @@ blockquote{
 }
 
 .placeIn, .placeBtnCont {
-  height: 8vh;
-  margin: 0px;
+  height: 6vh;
+  margin-bottom: 0px;
 }
 
 .placeText {
   margin: 2px;
+}
+
+.ez-options {
+  width: 98vw !important;
+  font-size: 36px;
+}
+
+.date {
+  font-size: 24px;
+}
+
+.ez-event-list {
+  height: 14vh;
+}
+
+.ez-event-list-item {
+  height: auto !important;
+  font-size: 16px;
+}
+
+.ez-featured-image img {
+  width: auto !important;
 }
 
 @media screen and (max-width: 990px) {
@@ -338,5 +360,11 @@ blockquote{
   }
   #map {
     height: 68vh;
+  }
+  .inputPlace, .inputPlace2 {
+    height: 4vh;
+  }
+  .inputPlace {
+    margin-top: 30px;
   }
 }

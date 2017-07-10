@@ -1,7 +1,7 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=getLocation" async defer></script>
 
 <div class="row">
-    <div input-field class="placeIn col l5 s6" >
+    <div input-field class="placeIn col l3 s6" >
       <select class="placeIn" ng-model="gm.type" material-select watch>
         <option value="" disabled selected>Choose your option</option>
         <option value="food">Food</option>
@@ -10,7 +10,7 @@
       </select>
       <label>Type of place</label>
     </div>
-    <div input-field class="placeIn col l5 s6" >
+    <div input-field class="placeIn col l3 s6" >
       <select class="placeIn" ng-model="gm.distance" material-select watch>
         <option value="" disabled selected>Choose your option</option>
         <option value="1609.34">1 mile</option>
@@ -20,8 +20,17 @@
       </select>
       <label>Distance</label>
     </div>
-    <div class="placeBtnCont col l2 s4 offset-s4 valign-wrapper">
-      <button type="button" class="col l12 s12 btn placeBtn" ng-click="gm.create()">Find</button>
+    <div class="inputPlace placeIn input-field col l5 s8">
+        <input class="inputPlace placeIn" ng-model="gm.location" id="location" type="text" class="in validate">
+        <label class="inLabel" for="location">Enter an Address or Place</label>
+    </div>
+    <div class="inputPlace2 placeBtnCont col l1 s4 valign-wrapper">
+      <button type="button" class="col s12 btn placeBtn" ng-click="gm.create()">Find</button>
     </div>
   </div>
+  <div ng-if="gm.loading" class="center-align">
+    <img class="load" src="https://s-media-cache-ak0.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" alt="">
+  </div>
+  <div class="row">
     <div id="map"></div>
+  </div>

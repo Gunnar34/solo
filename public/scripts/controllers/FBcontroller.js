@@ -25,12 +25,7 @@ app.controller('facebookController', facebookController);
       lat = position.coords.latitude;
       lon = position.coords.longitude;
       console.log(lat, lon);
-      var position = {
-        lat: lat,
-        lon: lon
-      };
       vm.getEvents();
-      locService.storeGeoLocation(position);
     } //find current location
 
 
