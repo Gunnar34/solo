@@ -196,12 +196,21 @@ blockquote{
 }
 
 #map {
-  height: 100vh;
+  height: 70vh;
   width: 100vw
 }
 
 .types {
   width: 50%
+}
+
+.placeIn, .placeBtnCont {
+  height: 8vh;
+  margin: 0px;
+}
+
+.placeText {
+  margin: 2px;
 }
 
 @media screen and (max-width: 990px) {
@@ -320,5 +329,14 @@ blockquote{
   }
   .ez-event-list-item {
     height: 40px !important;
+  }
+  .placeBtnCont {
+    height: auto;
+  }
+  .placeBtn {
+    height: 4rem;
+  }
+  #map {
+    height: 68vh;
   }
 }

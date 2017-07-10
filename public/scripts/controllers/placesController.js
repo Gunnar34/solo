@@ -72,10 +72,10 @@ function createMarker(place) {
 
   google.maps.event.addListener(marker, 'click', function() {
     console.log(place);
-    infowindow.setContent('<div class="center-align"><h5>' + place.name + '</h5>' +
-    ' Rating: ' + place.rating + '<br>' +
-    ' Address: ' + place.vicinity + '<br>' +
-    '<a href = "http://www.google.com/search?q=' + place.name + '" target="_blank">Link in google</a>' +
+    infowindow.setContent('<div class="center-align"><h4>' + place.name + '</h4>' +
+    '<p class="flow-text placeText">Rating: ' + place.rating + '</p>' +
+    '<p class="flow-text placeText">Address: ' + place.vicinity + '</p>' +
+    '<a href = "http://www.google.com/search?q=' + place.name + '" target="_blank"><p class="flow-text placeText">Link in google</p></a>' +
     '<br><button class="btn">Save</button><br>  </div>');
     infowindow.open(map, this);
   });

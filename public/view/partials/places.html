@@ -1,8 +1,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap" async defer></script>
 
 <div class="row">
-    <div input-field class="col s5" >
-      <select ng-model="gm.type" material-select watch>
+    <div input-field class="placeIn col l5 s6" >
+      <select class="placeIn" ng-model="gm.type" material-select watch>
         <option value="" disabled selected>Choose your option</option>
         <option value="food">Food</option>
         <option value="gym">Gym</option>
@@ -10,8 +10,8 @@
       </select>
       <label>Type of place</label>
     </div>
-    <div input-field class="col s5" >
-      <select ng-model="gm.distance" material-select watch>
+    <div input-field class="placeIn col l5 s6" >
+      <select class="placeIn" ng-model="gm.distance" material-select watch>
         <option value="" disabled selected>Choose your option</option>
         <option value="1609.34">1 mile</option>
         <option value="3218.69">2 miles</option>
@@ -20,6 +20,8 @@
       </select>
       <label>Distance</label>
     </div>
-    <button type="button" class="btn col s2" ng-click="gm.create()">Find</button>
+    <div class="placeBtnCont col l2 s4 offset-s4 valign-wrapper">
+      <button type="button" class="col l12 s12 btn placeBtn" ng-click="gm.create()">Find</button>
+    </div>
   </div>
     <div id="map"></div>
