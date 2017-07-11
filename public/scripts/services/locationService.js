@@ -17,17 +17,5 @@ app.service('locService', function($http) {
         });
     };
 
-  // sv.getGeoLocation = function(){
-  //   return navigator.geolocation.getCurrentPosition(function(position){
-  //     lat = position.coords.latitude;
-  //     lon = position.coords.longitude;
-  //     console.log(lat, lon);
-  //     var position = {
-  //       lat: lat,
-  //       lon: lon
-  //     };
-  //     return position;
-  //   });
-  // }
 
 });

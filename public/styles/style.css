@@ -292,8 +292,10 @@ blockquote{
     height: 12vh;
     text-align: center;
   }
-  .loggedIn{
+  .loggedInDiv{
     height: 12vh;
+  }
+  .loggedIn {
     font-size: 32px;
   }
   #menuIcon {
