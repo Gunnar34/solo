@@ -35,7 +35,7 @@
         </div>
         <div ng-hide="x.eventPannel" class="fbDesc">
           <h2 class="eventHead center-align">Description</h2>
-          <p class="flow-text eventText2 center-align">{{x.description | limitTo:500}}</p>
+          <p class="flow-text eventText2 center-align">{{x.description | limitTo:375}}</p>
           <p class="flow-text link eventText2 center-align"><a href="https://www.facebook.com/events/{{x.id}}" target="_blank"><span>More Info...</span></a></p>
           <h3 class="eventHead center-align">Location</h3>
           <p class="flow-text link eventText2 center-align"><a ng-href="http://maps.google.com/?q={{x.venue.location.city}}+{{x.venue.location.street}}+{{x.venue.location.zip}}"

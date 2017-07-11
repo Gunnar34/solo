@@ -9,7 +9,7 @@ var zoom = 15;
 var controllerContainer;
 var loading = true;
 
-function googleMap(locService, $interval){
+function googleMap(locService, $interval, $scope){
   var vm = this;
   controllerContainer = this;
 
@@ -18,11 +18,11 @@ function googleMap(locService, $interval){
     if (!loading) {
       $interval.cancel(loadTimer);
     }
-  }, 100);
+  }, 10);
 
-  vm.save = function(){
+  vm.saveEvent = function(){
     console.log('save');
-    
+    console.log(vm.places[vm.index].name);
   }
 
   vm.create = function(){
@@ -64,6 +64,7 @@ function googleMap(locService, $interval){
     console.log(position);
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
+    vm.place;
     pyrmont = {
       lat: lat,
       lng: lon
@@ -108,13 +109,14 @@ function googleMap(locService, $interval){
 
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
+      vm.places = results;
       for (var i = 0; i < results.length; i++) {
-        createMarker(results[i]);
+        createMarker(results[i], i);
       }
     }
   }
 
-  function createMarker(place) {
+  function createMarker(place, index) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
       map: map,
@@ -122,21 +124,18 @@ function googleMap(locService, $interval){
     });
 
     google.maps.event.addListener(marker, 'click', function() {
+      vm.index = index;
       console.log(place);
       infowindow.setContent('<div class="center-align"><h4>' + place.name + '</h4>' +
       '<p class="flow-text placeText">Rating: ' + place.rating + '</p>' +
       '<p class="flow-text placeText">Address: ' + place.vicinity + '</p>' +
       '<a href = "http://www.google.com/search?q=' + place.name + '" target="_blank"><p class="flow-text placeText">Link in google</p></a>' +
-      '<br><button onclick="saveEvent()" class="btn">Save</button><br>  </div>');
+      '<br><button onclick="document.getElementById(\'id01\').style.display=\'block\'" class="btn">Save</button><br></div>');
       infowindow.open(map, this);
     });
   }
 
 }; //end controller
-
-function saveEvent(){
-  controllerContainer.save();
-}
 
 function getLocation(){
   controllerContainer.getLocation();

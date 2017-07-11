@@ -34,3 +34,96 @@
   <div class="row">
     <div id="map"></div>
   </div>
+  <div id="id01" class="modal">
+
+    <span onclick="document.getElementById('id01').style.display='none'"
+      class="close" title="Close Modal">&times;</span>
+
+    <div class="modal-content animate">
+      <h1 class="center-align">Trip Info</h1>
+      <div class="container">
+        <div class="col s6">
+          <h3>{{ gm.places[gm.index].name }}</h3>
+        </div>
+      </div>
+      <div class="container row">
+        <div class="input-field col l6 s12">
+          <label for="startDate">Start date</label>
+          <input input-date
+              type="text"
+              name="created"
+              id="startDate"
+              ng-model="gm.startDate"
+              container=""
+              format="dd/mm/yyyy"
+              months-full="{{ month }}"
+              months-short="{{ monthShort }}"
+              weekdays-full="{{ weekdaysFull }}"
+              weekdays-short="{{ weekdaysShort }}"
+              weekdays-letter="{{ weekdaysLetter }}"
+              disable="disable"
+              min="{{ minDate }}"
+              max="{{ maxDate }}"
+              today="today"
+              first-day="1"
+              clear="clear"
+              close="close"
+              select-years="15"
+              on-start="onStart()"
+              on-render="onRender()"
+              on-open="onOpen()"
+              on-close="onClose()"
+              on-set="onSet()"
+              on-stop="onStop()" />
+        </div>
+        <div class="input-field col l6 s12">
+          <label for="startTime">Start Time</label>
+          <input id="startTime" class="timepicker" ng-model="gm.startTime" input-clock data-twelvehour="true" type="date">
+        </div>
+      </div>
+      <div class="container row">
+        <div class="input-field col l6 s12">
+          <label for="endDate">Start date</label>
+          <input input-date
+              type="text"
+              name="created"
+              id="endDate"
+              ng-model="gm.endDate"
+              container=""
+              format="dd/mm/yyyy"
+              months-full="{{ month }}"
+              months-short="{{ monthShort }}"
+              weekdays-full="{{ weekdaysFull }}"
+              weekdays-short="{{ weekdaysShort }}"
+              weekdays-letter="{{ weekdaysLetter }}"
+              disable="disable"
+              min="{{ minDate }}"
+              max="{{ maxDate }}"
+              today="today"
+              first-day="1"
+              clear="clear"
+              close="close"
+              select-years="15"
+              on-start="onStart()"
+              on-render="onRender()"
+              on-open="onOpen()"
+              on-close="onClose()"
+              on-set="onSet()"
+              on-stop="onStop()" />
+        </div>
+        <div class="input-field col l6 s12">
+          <label for="endTime">End Time</label>
+          <input id="endTime" class="timepicker" ng-model="gm.endTime" input-clock data-twelvehour="true" type="date">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="description" class="materialize-textarea"></textarea>
+          <label for="description">Description</label>
+        </div>
+      </div>
+      <div class="row center-align">
+        <button type="button" name="button" class="btn center-align" ng-click="gm.saveEvent()">Save</button>
+      </div>
+    </div>
+  </div>
