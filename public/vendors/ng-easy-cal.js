@@ -176,8 +176,8 @@
                                 eventEnd.isSame(calendarDate, 'day')||
                                 (calendarDate.isBefore(eventEnd, 'day') && calendarDate.isAfter(eventStart, 'day'))){
                                 var cleanEvent = {
-                                    startDate: eventStart,
-                                    endDate: eventEnd,
+                                    startDate: dateFormat(eventStart, "m/d/yy h:MM TT"), //edited to beautfiy date
+                                    endDate: dateFormat(eventEnd, "m/d/yy h:MM TT"), //edited to beautfiy date
                                     title: event.title,
                                     description: event.description,
                                     image: event.image,

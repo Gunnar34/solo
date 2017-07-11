@@ -4,9 +4,14 @@
     <div input-field class="placeIn col l3 s6" >
       <select class="placeIn" ng-model="gm.type" material-select watch>
         <option value="" disabled selected>Choose your option</option>
-        <option value="food">Food</option>
-        <option value="gym">Gym</option>
-        <option value="store">Store</option>
+        <option value="restaurant">Restaurant</option>
+        <option value="art_gallery">Art Gallery</option>
+        <option value="movie_theater">Movie Theatre</option>
+        <option value="bowling_alley">Bowling Alley</option>
+        <option value="museum">Museum</option>
+        <option value="night_club">Night Club</option>
+        <option value="park">Park</option>
+        <option value="cafe">cafe</option>
       </select>
       <label>Type of place</label>
     </div>
@@ -78,7 +83,7 @@
         </div>
         <div class="input-field col l6 s12">
           <label for="startTime">Start Time</label>
-          <input id="startTime" class="timepicker" ng-model="gm.startTime" input-clock data-twelvehour="true" type="date">
+          <input id="startTime" class="timepicker" ng-model="gm.startTime" input-clock data-twelvehour="false" type="text" />
         </div>
       </div>
       <div class="container row">
@@ -113,12 +118,12 @@
         </div>
         <div class="input-field col l6 s12">
           <label for="endTime">End Time</label>
-          <input id="endTime" class="timepicker" ng-model="gm.endTime" input-clock data-twelvehour="true" type="date">
+          <input id="endTime" class="timepicker" ng-model="gm.endTime" input-clock data-twelvehour="false" type="text" />
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="description" class="materialize-textarea"></textarea>
+          <textarea ng-model="gm.description" id="description" class="materialize-textarea"></textarea>
           <label for="description">Description</label>
         </div>
       </div>

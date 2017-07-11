@@ -14,15 +14,22 @@ function calendarController(calendarService){
     calendarService.getEvents(id).then(function(res){
       console.log(res);
       for (var i = 0; i < res.length; i++) {
-        console.log(new Date(res[i].startDate));
+        if (res[i].type == 'facebook') {
+          console.log(res[i].type);
+          res[i].moreInfo = "https://www.facebook.com/events/" + res[i].info;
+        }
+        if (res[i].type == 'google') {
+          res[i].moreInfo = "http://www.google.com/search?q=" + res[i].info;
+          console.log(res[i].type);
+        }
         var CalEvent = {
-          startDate: new Date(res[i].startDate),
-          endDate: new Date(res[i].endDate),
+          startDate: res[i].startDate,
+          endDate: res[i].endDate,
           title: res[i].title,
           description: res[i].description,
 	        image: res[i].image,
           ID: res[i]._id,
-          info: res[i].info,
+          info: res[i].moreInfo,
           location: res[i].location
         };
         vm.events.push(CalEvent)

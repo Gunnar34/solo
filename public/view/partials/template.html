@@ -15,28 +15,28 @@
 	 		<img class="calImg" ng-src="{{popover.event.image}}">
 	 	</div>
 	 	<div class="ez-popover-title">
-	 		<h4>{{popover.event.title}}</h4>
+	 		<h3>{{popover.event.title}}</h3>
 	 	</div>
-	 	<div class="ez-popover-times">
-	 	<span class="caltext">{{formatDate(popover.event.startDate)}} - {{formatDate(popover.event.endDate)}}</span>
+	 	<div class="ez-popover-times flow-text">
+	 	<span class="caltext">{{popover.event.startDate}} - {{popover.event.endDate}}</span>
 	    </div>
-	 	<div class="ez-popover-description">
-	 		<p class="caltext">{{popover.event.description | limitTo:450 }}</p>
+	 	<div class="ez-popover-description flow-text">
+	 		<p class="caltext">{{popover.event.description}}</p>
 	 	</div>
     <div class="">
       <button class="btn red" name="button" ng-click="deleteEvent()">Remove</button>
     </div>
     <div class="">
-      <p class="center-align caltext">
-        <a href="https://www.facebook.com/events/{{popover.event.info}}" target="_blank">
+      <p class="center-align caltext flow-text">
+        <a href="{{popover.event.info}}" target="_blank">
           <span>More Info...</span>
         </a>
       </p>
     </div>
     <div class="">
-      <p class="center-align caltext">
-        <a href="http://maps.google.com/?q={{popover.event.location.city}}{{popover.event.location.street}}{{popover.event.location.zip}}" target="_blank">
-          <span>{{popover.event.location.city}} {{popover.event.location.street}} {{popover.event.location.zip}}</span>
+      <p class="center-align caltext flow-text">
+        <a href="http://maps.google.com/?q={{popover.event.location}}" target="_blank">
+          <span>{{popover.event.location}}</span>
         </a>
       </p>
     </div>

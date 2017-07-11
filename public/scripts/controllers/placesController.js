@@ -9,7 +9,7 @@ var zoom = 15;
 var controllerContainer;
 var loading = true;
 
-function googleMap(locService, $interval, $scope){
+function googleMap(locService, $interval, $http){
   var vm = this;
   controllerContainer = this;
 
@@ -21,8 +21,65 @@ function googleMap(locService, $interval, $scope){
   }, 10);
 
   vm.saveEvent = function(){
-    console.log('save');
-    console.log(vm.places[vm.index].name);
+    var id = localStorage.getItem('ID');
+    var x = vm.places[vm.index];
+    var typeCheck = type[0];
+    console.log(typeCheck);
+    if (typeCheck == "restaurant") {
+      var image = '../../images/Restaurant.png'
+    };
+    if (typeCheck == "movie_theater") {
+      var image = '../../images/movieTheatre.png'
+    };
+    if (typeCheck == "art_gallery") {
+      var image = '../../images/artGallery.jpg'
+    };
+    if (typeCheck == "bowling_alley") {
+      var image = '../../images/bowling.png'
+    };
+    if (typeCheck == "museum") {
+      var image = '../../images/museum.png'
+    };
+    if (typeCheck == "night_club") {
+      var image = '../../images/nightClub.png'
+    };
+    if (typeCheck == "park") {
+      var image = '../../images/park.png'
+    };
+    if (typeCheck == "cafe") {
+      var image = '../../images/cafe.png'
+    };
+    var start = dateFormat(vm.startDate, vm.startTime);
+    var end = dateFormat(vm.endDate, vm.endTime);
+    var placeEvent = {
+       start: start,
+       end: end,
+       title: x.name,
+       description: vm.description,
+       image: image,
+       userID: id,
+       info: x.name, //set equal to name so more info can be google search instead of fb link.
+       type: 'google',
+       location: x.vicinity
+    };
+    $http.post('/events', placeEvent).then(function(response){
+      console.log(response);
+    });
+    vm.startDate = '';
+    vm.startTime = '';
+    vm.endDate = '';
+    vm.endTime = '';
+    vm.description = '';
+  }
+
+  function dateFormat(date, time){
+    var a = date.split('/');
+    var c = a.pop();
+    var b = a.pop();
+    var newDate = c + '-' + b + '-' + a;
+    var newTime = 'T' + time + ':00-0500';
+    var newFormat = newDate + newTime;
+    return newFormat;
   }
 
   vm.create = function(){
@@ -125,7 +182,6 @@ function googleMap(locService, $interval, $scope){
 
     google.maps.event.addListener(marker, 'click', function() {
       vm.index = index;
-      console.log(place);
       infowindow.setContent('<div class="center-align"><h4>' + place.name + '</h4>' +
       '<p class="flow-text placeText">Rating: ' + place.rating + '</p>' +
       '<p class="flow-text placeText">Address: ' + place.vicinity + '</p>' +

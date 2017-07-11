@@ -69,6 +69,7 @@ app.controller('facebookController', facebookController);
       if (localStorage.getItem('loggedIn') == 'true') {
         var id = localStorage.getItem('ID');
         var x = vm.events[index];
+        console.log(x);
         var FbEvent = {
            start: x.startTime,
            end: x.endTime,
@@ -77,7 +78,8 @@ app.controller('facebookController', facebookController);
   	       image: x.coverPicture,
            userID: id,
            info: x.id,
-           location: {city: x.venue.location.city, street: x.venue.location.street, zip: x.venue.location.zip}
+           type: 'facebook',
+           location: x.venue.location.street + ' ' + x.venue.location.city + ' ' + x.venue.location.zip
         };
         vm.events[index].saved = true;
         FbService.saveEvent(FbEvent);

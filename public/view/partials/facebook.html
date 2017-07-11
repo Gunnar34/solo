@@ -24,7 +24,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div id="fbEvent" class="col l6 s12 hoverable container" ng-repeat="x in fb.events" ng-click="fb.togglePannel($index)" ng-class="{saved: x.saved}">
+    <div class="fbEvent col l6 s12 hoverable container" ng-repeat="x in fb.events" ng-click="fb.togglePannel($index)" ng-class="{saved: x.saved}">
         <div ng-show="x.eventPannel">
           <h4 class="eventHead center-align">{{x.name}}</h4>
           <p class="flow-text eventText center-align">{{x.category}}</p>
@@ -35,7 +35,7 @@
         </div>
         <div ng-hide="x.eventPannel" class="fbDesc">
           <h2 class="eventHead center-align">Description</h2>
-          <p class="flow-text eventText2 center-align">{{x.description | limitTo:375}}</p>
+          <p class="flow-text eventText2 center-align">{{x.description}}</p>
           <p class="flow-text link eventText2 center-align"><a href="https://www.facebook.com/events/{{x.id}}" target="_blank"><span>More Info...</span></a></p>
           <h3 class="eventHead center-align">Location</h3>
           <p class="flow-text link eventText2 center-align"><a ng-href="http://maps.google.com/?q={{x.venue.location.city}}+{{x.venue.location.street}}+{{x.venue.location.zip}}"

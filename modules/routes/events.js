@@ -13,11 +13,8 @@ var eventSchema = new mongoose.Schema({
   "image": String,
   "userID": String,
   "info": String,
-  "location": {
-    "city": String,
-    "street": String,
-    "zip": String
-  }
+  "type": String,
+  "location": String
 });
 
 var eventModel = mongoose.model('events', eventSchema);
@@ -44,6 +41,7 @@ router.post('/', function(req, res) {
         image: req.body.image,
         userID: req.body.userID,
         info: req.body.info,
+        type: req.body.type,
         location: req.body.location
       };
   console.log(recordToAdd);

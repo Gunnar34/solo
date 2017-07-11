@@ -89,8 +89,10 @@ blockquote{
   height: 125%;
 }
 
-#fbEvent {
+.fbEvent {
   height: 100vh;
+  max-height: 100vh;
+  overflow: scroll;
 }
 
 .fbDesc {
@@ -184,6 +186,7 @@ blockquote{
   left: 30vw;
   height: 80vh;
   width: 40vw;
+  overflow: scroll;
 }
 
 .ez-close-button {
@@ -233,6 +236,7 @@ blockquote{
 
 .ez-featured-image img {
   width: auto !important;
+  max-width: 40vw;
 }
 
 .modal {
@@ -358,8 +362,9 @@ blockquote{
     height: 6rem !important;
     font-size: 24px !important;
   }
-  #fbEvent {
-    height: 75vh;
+  .fbEvent {
+    max-height: 75vh;
+    height: auto;
   }
   .eventImg {
     height: 50vh
@@ -387,6 +392,7 @@ blockquote{
     left: 20vw;
     height: 50vh;
     width: 60vw;
+    overflow: scroll;
   }
   .caltext {
     font-size: 20px;
@@ -411,5 +417,8 @@ blockquote{
   }
   .inputPlace {
     margin-top: 30px;
+  }
+  .ez-featured-image img {
+    max-width: 60vw;
   }
 }
