@@ -94,6 +94,7 @@ function googleMap(locService, $interval, $http){
             lng: res.lng
           };
         });
+        loading = false;
         initMap();
       }
       else {

@@ -36,8 +36,8 @@
                                         "#E36700",
                                         "#B60067"];
               scope.calendarDays = [];
-			  scope.ezWidth = scope.ezWidth || 400;
-			  scope.ezHeight = scope.ezHeight || 400;
+      			  scope.ezWidth = scope.ezWidth || 400;
+      			  scope.ezHeight = scope.ezHeight || 400;
               scope.dateHeight = (scope.ezHeight / 5) + "px";
               scope.dateWidth =  (scope.ezWidth / 7 -2)  + "px";
               scope.currentDate = defaultDate.format('MMMM YYYY');
@@ -175,9 +175,11 @@
                             if (eventStart.isSame(calendarDate, 'day') ||
                                 eventEnd.isSame(calendarDate, 'day')||
                                 (calendarDate.isBefore(eventEnd, 'day') && calendarDate.isAfter(eventStart, 'day'))){
+                                  var start = dateFormat(eventStart, "m/d/yy h:MM TT")
+                                  var end = dateFormat(eventEnd, "m/d/yy h:MM TT")
                                 var cleanEvent = {
-                                    startDate: dateFormat(eventStart, "m/d/yy h:MM TT"), //edited to beautfiy date
-                                    endDate: dateFormat(eventEnd, "m/d/yy h:MM TT"), //edited to beautfiy date
+                                    startDate: start, //edited to beautfiy date
+                                    endDate: end, //edited to beautfiy date
                                     title: event.title,
                                     description: event.description,
                                     image: event.image,
