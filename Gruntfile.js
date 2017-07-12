@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         files: {
           'public/build/app.min.js': ['public/vendors/jquery-3.2.1.min.js', 'public/vendors/angular.min.js',
           'public/vendors/angular-route.min.js', 'public/vendors/materialize.min.js', 'public/vendors/angular-materialize.min.js',
-          'public/vendors/materialize.clockpicker.js', 'public/vendors/date.format.js', 'public/vendors/ng-easy-cal.js', 'public/vendors/moment.min.js',
+          'public/vendors/materialize.clockpicker.js', 'public/vendors/ng-easy-cal.js', 'public/vendors/moment.min.js',
           'public/scripts/script.js', 'public/scripts/controllers/FBcontroller.js', 'public/scripts/controllers/calendarController.js',
           'public/scripts/controllers/placesController.js', 'public/scripts/services/FbService.js', 'public/scripts/services/locationService.js',
           'public/scripts/services/calendarService.js', 'public/scripts/services/userService.js']
