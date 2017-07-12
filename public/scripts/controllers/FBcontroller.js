@@ -11,7 +11,6 @@ app.controller('facebookController', facebookController);
 
     vm.init = function(){
       vm.loading = true;
-      FbService.getAccess();
       navigator.geolocation.getCurrentPosition(findLocation);
     }; //pageload function
 
@@ -25,7 +24,9 @@ app.controller('facebookController', facebookController);
       lat = position.coords.latitude;
       lon = position.coords.longitude;
       console.log(lat, lon);
-      vm.getEvents();
+      FbService.getAccess().then(function(){
+        vm.getEvents();
+      });
     } //find current location
 
 

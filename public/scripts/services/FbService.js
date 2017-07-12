@@ -11,8 +11,9 @@ app.service('FbService', function($http) {
 
   sv.getAccess = function(){
     console.log('in access');
-    $http.get('/access').then(function(response){
+    return $http.get('/access').then(function(response){
       access = response.data;
+      return'success'
     });
   };
 
