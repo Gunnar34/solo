@@ -40,6 +40,7 @@ app.service('FbService', function($http) {
         data.push(res.data.events[i]);
       }
       console.log('after loop', data);
+      console.log(res.data.events[0].startTime);
       return (data);
     });
   };
