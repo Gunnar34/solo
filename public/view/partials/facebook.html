@@ -30,8 +30,8 @@
           <p class="flow-text eventText center-align">{{x.category}}</p>
           <img class="eventImg" ng-src="{{x.coverPicture}}" alt=""></img>
           <p class="flow-text eventText center-align">attending: {{x.stats.attending}}  maybe: {{x.stats.maybe}}</p>
-          <p class="flow-text eventText center-align">Starts: {{x.startTimeDisplay}}</p>
-          <p class="flow-text eventText center-align">Ends: {{x.endTimeDisplay}}</p>
+          <p class="flow-text eventText center-align">Starts: {{x.startTime | date: 'EEEE, MMMM d, y h:mm a'}}</p>
+          <p class="flow-text eventText center-align">Ends: {{x.endTime | date: 'EEEE, MMMM d, y h:mm a'}}</p>
         </div>
         <div ng-hide="x.eventPannel" class="fbDesc">
           <h2 class="eventHead center-align">Description</h2>
