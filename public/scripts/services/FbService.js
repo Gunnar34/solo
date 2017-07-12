@@ -23,10 +23,11 @@ app.service('FbService', function($http) {
 
     return $http.get(url).then(function(res){
       var data = [];
+      console.log('before loop', res.data.events);
       for (var i = 0; i < res.data.events.length; i++) {
-        res.data.events[i].startTimeDisplay = res.data.events[i].startTime;
+        res.data.events[i].startTimeDisplay = new Date(res.data.events[i].startTime);
         res.data.events[i].startTimeDisplay = (dateFormat(res.data.events[i].startTimeDisplay, "dddd, mmmm dS, yyyy, h:MM TT"));
-        res.data.events[i].endTimeDisplay = res.data.events[i].endTime;
+        res.data.events[i].endTimeDisplay = new Date(res.data.events[i].endTime);
         res.data.events[i].endTimeDisplay = (dateFormat(res.data.events[i].endTimeDisplay, "dddd, mmmm dS, yyyy, h:MM TT"));
         if (res.data.events[i].category === null) {
           res.data.events[i].category = 'unknown';
@@ -38,7 +39,7 @@ app.service('FbService', function($http) {
         res.data.events[i].eventPannel = true;
         data.push(res.data.events[i]);
       }
-      console.log('getevents', data);
+      console.log('after loop', data);
       return (data);
     });
   };
