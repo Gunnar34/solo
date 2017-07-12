@@ -9,7 +9,9 @@ var gmap = require('./modules/routes/gmaps');
 var register = require('./modules/routes/register');
 var login = require('./modules/routes/login');
 var events = require('./modules/routes/events');
+var fbevents = require('./modules/routes/fbevents')
 
+app.use('/fb', fbevents);
 app.use('/events', events);
 app.use('/login', login);
 app.use('/register', register);

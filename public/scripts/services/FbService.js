@@ -17,7 +17,7 @@ app.service('FbService', function($http) {
   };
 
   sv.getEvents = function(time, lat, lon){
-    var url = 'http://localhost:3000/events?lat=' + lat + '&lng=' + lon + '&distance=90000&until=' +
+    var url = 'fb/events?lat=' + lat + '&lng=' + lon + '&distance=90000&until=' +
                time + '&sort=popularity&accessToken=' + access;
 
     return $http.get(url).then(function(res){

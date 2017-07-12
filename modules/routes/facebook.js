@@ -10,15 +10,15 @@ var child = new(forever.Monitor)('node_modules/facebook-events-by-location/index
     options: []
 });
 
-child.on('exit', function() {
-    console.log('FB.js has exited after 3 restarts');
-});
-
-child.on('start', function() {
-    console.log('FB.js has started');
-});
-
-child.start();
+// child.on('exit', function() {
+//     console.log('FB.js has exited after 3 restarts');
+// });
+//
+// child.on('start', function() {
+//     console.log('FB.js has started');
+// });
+//
+// child.start();
 
 var accessToken;
 

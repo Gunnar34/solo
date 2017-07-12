@@ -1,26 +1,11 @@
-// Internal modules
-
-// NPM modules
 var express = require("express");
+var router = express.Router();
 var morgan = require("morgan");
 var cors = require("cors");
-
-// Own modules
 var EventSearch = require("facebook-events-by-location-core");
 
-// Create the Express object
-var app = express();
+router.use(morgan("combined"));
 
-// Use morgan for logging
-app.use(morgan("combined"));
-
-// Set application properties
-app.set("host", process.env.HOST || "0.0.0.0");
-app.set("port", process.env.PORT0 || 3000);
-app.set("x-powered-by", false);
-app.set("etag", false);
-
-// Instantiate CORS whitelist
 var whitelist = [],
     enableAll = false;
 
@@ -55,7 +40,7 @@ var corsOptions = {
 };
 
 // Main route
-app.get("/events", cors(corsOptions), function(req, res) {
+router.get("/events", cors(corsOptions), function(req, res) {
 
     if (!req.query.lat || !req.query.lng) {
         res.status(500).json({message: "Please specify the lat and lng parameters!"});
@@ -110,12 +95,4 @@ app.get("/events", cors(corsOptions), function(req, res) {
 
 });
 
-// Health check route
-app.get("/health", function(req, res) {
-    res.send("OK");
-});
-
-// Start Express.js server
-var server = app.listen(app.get("port"), app.get("host"), function() {
-    console.log("Express server listening on port " + app.get("port") + " on " + app.get("host"));
-});
+module.exports = router;
