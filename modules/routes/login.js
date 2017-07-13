@@ -16,19 +16,19 @@ router.post('/', function(req, res) {
 		if (err) {
 			// err connecting
 			console.log('find user error:', err);
-			res.sendStatus(400);
+			res.send('error');
 		} // end error
 		else {
 			// connected
 			// find user
-			if (user !== undefined) {
+			if (user !== undefined && user !== null) {
 				// user found, compare raw text to hash
 				console.log('comparing:', req.body.password, user.password);
 				bcrypt.compare(req.body.password, user.password, function(err, success) {
 					if (err) {
 						// error with bcrypt
 						console.log('error:', err);
-						res.sendStatus(400);
+						res.send('error');
 						}
 					else {
 						// no error with bcrypt
@@ -48,7 +48,7 @@ router.post('/', function(req, res) {
 			} //end found user
 			else {
 				console.log('no user found');
-				res.send(400);
+				res.send('error');
 			}
 		} // end no error
 	}); //end looking for user

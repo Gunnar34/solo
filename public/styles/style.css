@@ -386,9 +386,6 @@ blockquote{
   .menuItem {
     font-size: 42px;
   }
-  .inLabel {
-    font-size: 20px !important;
-  }
   .in {
     font-size: 36px !important;
     height: 6rem !important;

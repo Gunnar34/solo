@@ -60,7 +60,7 @@ function bodyController($window, $location, userService){
         vm.userNameStored = localStorage.getItem('username');
       }
       else {
-        vm.wrong = true;
+        alertify.error('Wrong Username or Password')
         vm.logPassword = "";
       }
 		});
