@@ -13,7 +13,7 @@
         <option value="park">Park</option>
         <option value="cafe">cafe</option>
       </select>
-      <label>Type of place</label>
+      <label class="plLabel">Type of place</label>
     </div>
     <div input-field class="placeIn col l3 s6" >
       <select class="placeIn" ng-model="gm.distance" material-select watch>
@@ -23,7 +23,7 @@
         <option value="8046.72">5 miles</option>
         <option value="16093.4">10 miles</option>
       </select>
-      <label>Distance</label>
+      <label class="plLabel">Distance</label>
     </div>
     <div class="inputPlace placeIn input-field col l5 s8">
         <input class="inputPlace placeIn" ng-model="gm.location" id="location" type="text" class="in validate">
@@ -46,85 +46,40 @@
 
     <div class="modal-content animate">
       <h1 class="center-align">Trip Info</h1>
-      <div class="container">
-        <div class="col s6">
-          <h3>{{ gm.places[gm.index].name }}</h3>
-        </div>
-      </div>
       <div class="container row">
-        <div class="input-field col l6 s12">
-          <label for="startDate">Start date</label>
+        <div class="input-field col l6 s12 plcField">
+          <label class="placeInLabel" for="startDate">Start date</label>
           <input input-date
+              class="placeInput"
               type="text"
               name="created"
               id="startDate"
-              ng-model="gm.startDate"
-              container=""
-              format="dd/mm/yyyy"
-              months-full="{{ month }}"
-              months-short="{{ monthShort }}"
-              weekdays-full="{{ weekdaysFull }}"
-              weekdays-short="{{ weekdaysShort }}"
-              weekdays-letter="{{ weekdaysLetter }}"
-              disable="disable"
-              min="{{ minDate }}"
-              max="{{ maxDate }}"
-              today="today"
-              first-day="1"
-              clear="clear"
-              close="close"
-              select-years="15"
-              on-start="onStart()"
-              on-render="onRender()"
-              on-open="onOpen()"
-              on-close="onClose()"
-              on-set="onSet()"
-              on-stop="onStop()" />
+              ng-model="gm.startDate" />
         </div>
-        <div class="input-field col l6 s12">
-          <label for="startTime">Start Time</label>
-          <input id="startTime" class="timepicker" ng-model="gm.startTime" input-clock data-twelvehour="false" type="text" />
+        <div class="input-field col l6 s12 plcField">
+          <label class="placeInLabel" for="startTime">Start Time</label>
+          <input id="startTime" class="timepicker placeInput" ng-model="gm.startTime" input-clock data-twelvehour="false" type="text" />
         </div>
       </div>
       <div class="container row">
-        <div class="input-field col l6 s12">
-          <label for="endDate">Start date</label>
+        <div class="input-field col l6 s12 plcField">
+          <label class="placeInLabel" for="endDate">Start date</label>
           <input input-date
+              class="placeInput"
               type="text"
               name="created"
               id="endDate"
-              ng-model="gm.endDate"
-              container=""
-              format="dd/mm/yyyy"
-              months-full="{{ month }}"
-              months-short="{{ monthShort }}"
-              weekdays-full="{{ weekdaysFull }}"
-              weekdays-short="{{ weekdaysShort }}"
-              weekdays-letter="{{ weekdaysLetter }}"
-              disable="disable"
-              min="{{ minDate }}"
-              max="{{ maxDate }}"
-              today="today"
-              first-day="1"
-              clear="clear"
-              close="close"
-              select-years="15"
-              on-start="onStart()"
-              on-render="onRender()"
-              on-open="onOpen()"
-              on-close="onClose()"
-              on-set="onSet()"
-              on-stop="onStop()" />
+              ng-model="gm.endDate" />
         </div>
-        <div class="input-field col l6 s12">
-          <label for="endTime">End Time</label>
-          <input id="endTime" class="timepicker" ng-model="gm.endTime" input-clock data-twelvehour="false" type="text" />
+        <div class="input-field col l6 s12 plcField">
+          <label class="placeInLabel" for="endTime">End Time</label>
+          <input id="endTime" class="timepicker placeInput" ng-model="gm.endTime" input-clock data-twelvehour="false" type="text" />
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
-          <textarea ng-model="gm.description" id="description" class="materialize-textarea"></textarea>
-          <label for="description">Description</label>
+        <div class="input-field col s12 plcField">
+          <textarea ng-model="gm.description" id="description" class="materialize-textarea placeInput"></textarea>
+          <label class="placeInLabel" for="description">Description</label>
         </div>
       </div>
       <div class="row center-align">

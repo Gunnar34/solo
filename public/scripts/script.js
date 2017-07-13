@@ -36,7 +36,7 @@ function bodyController($window, $location, userService){
 		userService.registerUser(credentials).then(function() {
 			vm.username = "";
 			vm.password = "";
-      $location.path('/');
+      $location.path('/login');
       alertify.success('Successful Register!');
 		});
 	};

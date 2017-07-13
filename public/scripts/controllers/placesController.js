@@ -21,55 +21,62 @@ function googleMap(locService, $interval, $http){
   }, 10);
 
   vm.saveEvent = function(){
-    var id = localStorage.getItem('ID');
-    var x = vm.places[vm.index];
-    var typeCheck = type[0];
-    console.log(typeCheck);
-    if (typeCheck == "restaurant") {
-      var image = '../../images/Restaurant.png'
-    };
-    if (typeCheck == "movie_theater") {
-      var image = '../../images/movieTheatre.png'
-    };
-    if (typeCheck == "art_gallery") {
-      var image = '../../images/artGallery.jpg'
-    };
-    if (typeCheck == "bowling_alley") {
-      var image = '../../images/bowling.png'
-    };
-    if (typeCheck == "museum") {
-      var image = '../../images/museum.png'
-    };
-    if (typeCheck == "night_club") {
-      var image = '../../images/nightClub.png'
-    };
-    if (typeCheck == "park") {
-      var image = '../../images/park.png'
-    };
-    if (typeCheck == "cafe") {
-      var image = '../../images/cafe.png'
-    };
-    var start = dateFormat(vm.startDate, vm.startTime);
-    var end = dateFormat(vm.endDate, vm.endTime);
-    var placeEvent = {
-       start: start,
-       end: end,
-       title: x.name,
-       description: vm.description,
-       image: image,
-       userID: id,
-       info: x.name, //set equal to name so more info can be google search instead of fb link.
-       type: 'google',
-       location: x.vicinity
-    };
-    $http.post('/events', placeEvent).then(function(response){
-      console.log(response);
-    });
-    vm.startDate = '';
-    vm.startTime = '';
-    vm.endDate = '';
-    vm.endTime = '';
-    vm.description = '';
+    if (vm.startDate === undefined || vm.startTime === undefined || vm.endDate === undefined ||
+    vm.endTime === undefined || vm.description === undefined) {
+      alertify.notify('Please fill out all fields', 'error', 5);
+    }
+    else {
+      var id = localStorage.getItem('ID');
+      var x = vm.places[vm.index];
+      var typeCheck = type[0];
+      console.log(typeCheck);
+      if (typeCheck == "restaurant") {
+        var image = '../../images/Restaurant.png'
+      };
+      if (typeCheck == "movie_theater") {
+        var image = '../../images/movieTheatre.png'
+      };
+      if (typeCheck == "art_gallery") {
+        var image = '../../images/artGallery.jpg'
+      };
+      if (typeCheck == "bowling_alley") {
+        var image = '../../images/bowling.png'
+      };
+      if (typeCheck == "museum") {
+        var image = '../../images/museum.png'
+      };
+      if (typeCheck == "night_club") {
+        var image = '../../images/nightClub.png'
+      };
+      if (typeCheck == "park") {
+        var image = '../../images/park.png'
+      };
+      if (typeCheck == "cafe") {
+        var image = '../../images/cafe.png'
+      };
+      var start = dateFormat(vm.startDate, vm.startTime);
+      var end = dateFormat(vm.endDate, vm.endTime); //reformat dates to match fb ones in data base
+      var placeEvent = {
+         start: start,
+         end: end,
+         title: x.name,
+         description: vm.description,
+         image: image,
+         userID: id,
+         info: x.name, //set equal to name so more info can be google search instead of fb link.
+         type: 'google',
+         location: x.vicinity
+      };
+      $http.post('/events', placeEvent).then(function(response){
+        console.log(response);
+      });
+      vm.startDate = undefined;
+      vm.startTime = undefined;
+      vm.endDate = undefined;
+      vm.endTime = undefined;
+      vm.description = undefined;
+      document.getElementById('id01').style.display='none'
+    }
   }
 
   function dateFormat(date, time){
@@ -93,9 +100,8 @@ function googleMap(locService, $interval, $http){
             lat: res.lat,
             lng: res.lng
           };
+          initMap();
         });
-        loading = false;
-        initMap();
       }
       else {
         initMap();
