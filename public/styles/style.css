@@ -3,10 +3,10 @@ html {
 }
 
 .slider .slides{
-  height: 75vh !important;
+  height: 80vh !important;
 }
 .slider .slides li img {
-  height: 75vh !important;
+  height: 80vh !important;
 }
 
 #banner {
@@ -422,5 +422,8 @@ blockquote{
   }
   .ez-featured-image img {
     max-width: 60vw;
+  }
+  .alertify-notifier {
+    font-size: 48px;
   }
 }

@@ -36,6 +36,8 @@ function bodyController($window, $location, userService){
 		userService.registerUser(credentials).then(function() {
 			vm.username = "";
 			vm.password = "";
+      $location.path('/');
+      alertify.success('Successful Register!');
 		});
 	};
 
@@ -53,7 +55,9 @@ function bodyController($window, $location, userService){
         localStorage.setItem('username', response.data.username);
         localStorage.setItem('ID', response.data.userID);
         $location.path('/');
-        $window.location.reload();
+        alertify.success('Successful Login!');
+        vm.loggedIn = localStorage.getItem('loggedIn');
+        vm.userNameStored = localStorage.getItem('username');
       }
       else {
         vm.wrong = true;
