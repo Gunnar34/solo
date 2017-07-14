@@ -108,21 +108,23 @@
     class="close" title="Close Modal">&times;</span>
 
   <div class="modal-content animate">
-    <h1>Events</h1>
-    <div class="Divider"></div>
-    <div ng-repeat="event in todaysEvents">
-      <div class="ez-featured-image imgEvent">
-        <img class="calImg" ng-src="{{event.image}}" alt="">
+    <div class="modal-container">
+      <h1>Events</h1>
+      <div class="Divider"></div>
+      <div ng-repeat="event in todaysEvents">
+        <div class="ez-featured-image imgEvent">
+          <img class="calImg" ng-src="{{event.image}}" alt="">
+        </div>
+        <h2>{{event.title}}</h2>
+        <p class="flow-text">{{event.description}}</p>
+        <span class="flow-text">{{event.startDate}} - </span><span class="flow-text">{{event.endDate}}</span>
+        <p class="flow-text">{{event.location}}</p>
+        <a href="{{event.info}}"><p class="flow-text">More info....</p></a>
+        <div class="row">
+          <button class="btn red" name="button" ng-click="deleteEvent(event.ID)">Remove</button>
+        </div>
+        <div class="divider"></div>
       </div>
-      <h2>{{event.title}}</h2>
-      <p class="flow-text">{{event.description}}</p>
-      <span class="flow-text">{{event.startDate}} - </span><span class="flow-text">{{event.endDate}}</span>
-      <p class="flow-text">{{event.location}}</p>
-      <a href="{{event.info}}"><p class="flow-text">More info....</p></a>
-      <div class="row">
-        <button class="btn red" name="button" ng-click="deleteEvent(event.ID)">Remove</button>
-      </div>
-      <div class="divider"></div>
     </div>
   </div>
 
