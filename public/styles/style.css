@@ -121,8 +121,8 @@ blockquote{
 #loginForm {
   position: fixed;
   top: 30vh;
-  left: 30vw;
-  width: 500px;
+  left: 35vw;
+  width: 25vw;
   margin: 0 auto;
   padding: 20px 22px;
   border: 1px solid;
@@ -149,11 +149,12 @@ blockquote{
 }
 
 #backLink {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 #backLink:hover {
   text-decoration: underline;
+  background-color: rgba(0,0,0,.2)
 }
 
 .saved {
@@ -233,6 +234,10 @@ blockquote{
   height: 14vh;
 }
 
+.events-number {
+  display: none;
+}
+
 .ez-event-list-item {
   height: auto !important;
   font-size: 16px;
@@ -241,6 +246,11 @@ blockquote{
 .ez-featured-image img {
   width: auto !important;
   max-width: 40vw;
+}
+
+.imgEvent {
+  height: 30vh !important;
+  margin-top: 10px;
 }
 
 .modal {
@@ -432,8 +442,33 @@ blockquote{
   .caltext {
     font-size: 20px;
   }
+  .ez-event-list {
+    height: 9vh;
+  }
   .ez-event-list-item {
-    height: auto !important;
+    display: none;
+  }
+  .events-number {
+    font-size: 4.5rem;
+    display: inline-block;
+    margin-top: 5rem;
+    margin-left: 1rem;
+    color: #2196f3;
+  }
+  .ez-day-container {
+    height: 100%;
+  }
+  .dateDay {
+    height: 12vh !important;
+  }
+  .date {
+    font-size: 3.3rem;
+  }
+  .ez-options {
+    font-size: 3rem;
+  }
+  .calendarContainer {
+    height: 70vh !important;
   }
   .placeBtnCont {
     height: auto;

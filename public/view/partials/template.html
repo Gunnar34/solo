@@ -24,7 +24,7 @@
 	 		<p class="caltext">{{popover.event.description}}</p>
 	 	</div>
     <div class="">
-      <button class="btn red" name="button" ng-click="deleteEvent()">Remove</button>
+      <button class="btn red" name="button" ng-click="deleteEvent(popover.event.ID)">Remove</button>
     </div>
     <div class="">
       <p class="center-align caltext flow-text">
@@ -77,9 +77,9 @@
                     'out-of-month': day.nextMonth || day.previousMonth}"
          ng-repeat="day in calendarDays"
 		 ng-click="changeMonth(day)">
-		<div class="ez-day-container">
+		<div class="ez-day-container"  ng-click="logDate(day)" > <!--  addded function -->
         <div class="ez-day-number">
-			<span class="date" ng-click="logDate(day)">{{day.dateNumber}}</span>
+			<span class="date">{{day.dateNumber}}</span>
 		</div>
         <ul class="ez-event-list">
 
@@ -93,10 +93,37 @@
 				  ><span ng-show="!event.multiDay">{{event.formattedStart}}-{{event.title | limitTo:30}} </span>
 
             </li>
+            <span class="events-number" ng-repeat="event in day.events"> • </span> <!-- adding this for mobile view -->
         </ul>
 			</div>
 
 
     </div>
+
+</div>
+
+<div id="id02" class="modal">
+
+  <span onclick="document.getElementById('id02').style.display='none'"
+    class="close" title="Close Modal">&times;</span>
+
+  <div class="modal-content animate">
+    <h1>Events</h1>
+    <div class="Divider"></div>
+    <div ng-repeat="event in todaysEvents">
+      <div class="ez-featured-image imgEvent">
+        <img class="calImg" ng-src="{{event.image}}" alt="">
+      </div>
+      <h2>{{event.title}}</h2>
+      <p class="flow-text">{{event.description}}</p>
+      <span class="flow-text">{{event.startDate}} - </span><span class="flow-text">{{event.endDate}}</span>
+      <p class="flow-text">{{event.location}}</p>
+      <a href="{{event.info}}"><p class="flow-text">More info....</p></a>
+      <div class="row">
+        <button class="btn red" name="button" ng-click="deleteEvent(event.ID)">Remove</button>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </div>
 
 </div>

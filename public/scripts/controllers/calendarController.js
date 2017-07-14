@@ -5,9 +5,6 @@ function calendarController(calendarService){
   vm.screenWidth = screen.width - 20;
   vm.events = [];
 
-  vm.date = function(day){
-    console.log(day);
-  }
 
   vm.getEvents = function(){
     var id = localStorage.getItem('ID');

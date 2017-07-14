@@ -279,14 +279,11 @@
 				scope.popover.event = undefined;
 			  }
 
-        scope.deleteEvent = function () {
+        scope.deleteEvent = function (id) {
           console.log('click');
-          var id = scope.popover.event.ID;
-          console.log(id);
           calendarService.deleteEvent(id).then(function(res){
-            console.log(res);
             $route.reload();
-          });
+          }); //added to connect to my service
       }
 
 			  scope.formatDate = function (date) {
@@ -298,8 +295,11 @@
                 scope.$watchCollection('ezEvents', function(){
                     constructCalendar();
                 });
-        scope.logDate = function(date){
-          console.log(date);
+        scope.logDate = function(date){ //added function to display all of a days events
+          if (date.events.length && screen.width < 990) {
+            document.getElementById('id02').style.display='block'
+            scope.todaysEvents = date.events;
+          }
         };
         scope.screenWidth = screen.width/2;
         scope.screenHeigth = screen.height/2;
