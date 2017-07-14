@@ -281,9 +281,9 @@ blockquote{
 .close {
     position: absolute;
     right: 25px;
-    top: 10px;
+    top: 15px;
     color: #000;
-    font-size: 54px;
+    font-size: 68px;
     font-weight: bold;
 }
 
@@ -411,7 +411,7 @@ blockquote{
     font-size: 24px !important;
   }
   .fbEvent {
-    max-height: 75vh;
+    max-height: 80vh;
     height: auto;
   }
   .eventImg {
