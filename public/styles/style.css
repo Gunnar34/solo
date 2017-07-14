@@ -275,7 +275,7 @@ blockquote{
     width: 80%;
     overflow-y: scroll;
      -webkit-overflow-scrolling: touch;
-     min-height: 30%;
+     min-height: 80%;
 }
 
 .close {
