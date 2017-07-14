@@ -90,7 +90,7 @@ blockquote{
 }
 
 .fbEvent {
-  height: 100vh;
+  min-height: 10vh;
   max-height: 100vh;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
@@ -419,6 +419,7 @@ blockquote{
     font-size: 24px !important;
   }
   .fbEvent {
+    min-height: 10vh;
     max-height: 80vh;
   }
   .eventImg {
