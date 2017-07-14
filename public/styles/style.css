@@ -93,6 +93,7 @@ blockquote{
   height: 100vh;
   max-height: 100vh;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .fbDesc {
@@ -419,7 +420,6 @@ blockquote{
   }
   .fbEvent {
     max-height: 80vh;
-    height: auto;
   }
   .eventImg {
     height: 50vh
