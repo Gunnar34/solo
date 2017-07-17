@@ -17,9 +17,9 @@ app.service('FbService', function($http) {
     });
   };
 
-  sv.getEvents = function(time, lat, lon){
-    var url = 'fb/events?lat=' + lat + '&lng=' + lon + '&distance=90000&until=' +
-               time + '&sort=popularity&accessToken=' + access;
+  sv.getEvents = function(time, time2, lat, lon){
+    var url = 'fb/events?lat=' + lat + '&lng=' + lon + '&distance=90000&since=' + time + '&until=' +
+               time2 + '&sort=popularity&accessToken=' + access;
 
     return $http.get(url).then(function(res){
       var data = [];

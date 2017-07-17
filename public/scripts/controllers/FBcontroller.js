@@ -31,20 +31,27 @@ app.controller('facebookController', facebookController);
 
 
     vm.getEvents = function (){
-      if (vm.timeSelect === undefined) {
-        var timeSelect = 172800;
+      if (vm.timeSelect === undefined || vm.timeSelect === null) {
+        var time = (Math.floor(Date.now() / 1000))
+        var now = new Date();
+        var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var timestamp = startOfDay / 1000;
+        var time2 = timestamp + 86400;
       }
       else {
-        var timeSelect = vm.timeSelect;
+        var now = new Date();
+        var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var timestamp = startOfDay / 1000;
+        var time = timestamp + Number(vm.timeSelect);
+        var time2 = time + 86400;
       }
-      var time = (Math.floor(Date.now() / 1000)) + Number(timeSelect);
-      console.log('unix time: ', time);
       if (lat === undefined || lon === undefined) {
         lat = 44.986656;
         lon = -93.258133;
         }
-        console.log(lat, lon);
-      FbService.getEvents(time, lat, lon).then(function(res){
+        console.log('time2', time2);
+        console.log('time', time);
+      FbService.getEvents(time, time2, lat, lon).then(function(res){
         vm.loading = false;
         vm.events = res;
         console.log(res);
@@ -54,16 +61,20 @@ app.controller('facebookController', facebookController);
     vm.getLocation = function(){
       vm.loading = true;
       vm.events = [];
-      locService.getKey().then(function(res){
-        var address = vm.location;
-        vm.location = '';
-        locService.getLocation(address).then(function(res){
-          lat = res.lat;
-          lon = res.lng;
-          vm.getEvents();
-        });
-      }); //get addrress to lon lat with google api, then events
-
+      if (vm.location) {
+        locService.getKey().then(function(res){
+          var address = vm.location;
+          vm.location = '';
+          locService.getLocation(address).then(function(res){
+            lat = res.lat;
+            lon = res.lng;
+            vm.getEvents();
+          });
+        }); //get addrress to lon lat with google api, then events
+      }
+      else {
+        vm.getEvents();
+      }
     };
 
     vm.saveEvent = function(index){

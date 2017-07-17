@@ -26,11 +26,11 @@
       <label class="plLabel">Distance</label>
     </div>
     <div class="inputPlace placeIn input-field col l5 s8">
-        <input class="inputPlace placeIn" ng-model="gm.location" id="location" type="text" class="in validate">
+        <input class="inputPlace inputPlace2 placeIn" ng-model="gm.location" id="location" type="text" class="in validate">
         <label class="plLabel" for="location">Enter an Address or Place</label>
     </div>
     <div class="inputPlace2 placeBtnCont col l1 s4 valign-wrapper">
-      <button type="button" class="col s12 btn placeBtn" ng-click="gm.create()">Find</button>
+      <button type="button" class="col s12 btn placeBtn light-blue lighten-4" ng-click="gm.create()">Find</button>
     </div>
   </div>
   <div ng-if="gm.loading" class="center-align">

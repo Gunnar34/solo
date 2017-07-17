@@ -22,8 +22,20 @@ html {
   font-size: 24px;
 }
 
+#menu {
+  color: #FFFFFF !important;
+}
+
+.side-nav li>a:hover, .side-nav .collapsible-header:hover, .side-nav.fixed .collapsible-header:hover {
+  background-color: transparent !important;
+}
+
+.loggedIn {
+  color: #FFFFFF
+}
+
 #nav-mobile {
-  background-color: #80cbc4;
+  background-color: #FFFFFF;
   width: 30vw !important;
 }
 
@@ -32,11 +44,15 @@ html {
 }
 
 .nav2 {
-  background-color: #e0f2f1;
+  background-color: #FFFFFF;
+}
+
+.nav3 {
+  margin-left: 30px;
 }
 
 #header {
-  color: white;
+  color: #FFFFFF;
   text-align: center;
 }
 
@@ -45,6 +61,7 @@ html {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 36px;
+  color: #FFFFFF;
 }
 
 #menuID {
@@ -87,6 +104,29 @@ blockquote{
   top: -100px;
   width: 100%;
   height: 125%;
+}
+
+.Mat-input:focus {
+  border-bottom: 2px solid #BBDEFB !important;
+  box-shadow: 0 2px 0 0 #BBDEFB !important;
+}
+
+.inputPlace2:focus {
+  border-bottom: 2px solid #BBDEFB !important;
+  box-shadow: 0 2px 0 0 #BBDEFB !important;
+}
+
+.input-field label:not(.label-icon).active {
+  color: #BBDEFB !important;
+}
+
+.inLabel {
+  font-size: 1.5rem !important;
+  margin: 5px;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #BBDEFB !important;
 }
 
 .fbEvent {
@@ -133,7 +173,7 @@ blockquote{
   width: 300px;
   border: 1px solid;
   padding: 8px 24px 8px 10px;
-  color: #fff;
+  color: #ffffff;
   text-shadow: 0 1px 0 rgba(0,0,0,.1);
   margin-bottom: 19px;
   margin-top: 10px;
@@ -196,7 +236,7 @@ blockquote{
 }
 
 .ez-close-button {
-  font-size: 54px;
+  font-size: 68px;
   color: red;
 }
 
@@ -339,6 +379,11 @@ blockquote{
 .picker__day-display, .picker__year-display, .picker__calendar-container {
   height: auto !important;
   width: auto !important;
+}
+
+.select-dropdown li.disabled, .select-dropdown li.disabled>span, .select-dropdown li.optgroup {
+  color: rgba(0,0,0,0.3) !important;
+  background-color: transparent !important;
 }
 
 @media screen and (max-width: 990px) {
@@ -486,6 +531,7 @@ blockquote{
   }
   .placeBtn {
     height: 4rem;
+    font-size: 2rem;
   }
   #map {
     height: 68vh;
