@@ -56,6 +56,7 @@ function googleMap(locService, $interval, $http){
       };
       var start = dateFormat(vm.startDate, vm.startTime);
       var end = dateFormat(vm.endDate, vm.endTime); //reformat dates to match fb ones in data base
+      console.log(start, end);
       var placeEvent = {
          start: start,
          end: end,
@@ -69,21 +70,26 @@ function googleMap(locService, $interval, $http){
       };
       $http.post('/events', placeEvent).then(function(response){
         console.log(response);
+        vm.startDate = undefined;
+        vm.startTime = undefined;
+        vm.endDate = undefined;
+        vm.endTime = undefined;
+        vm.description = undefined;
+        document.getElementById('id01').style.display='none'
       });
-      vm.startDate = undefined;
-      vm.startTime = undefined;
-      vm.endDate = undefined;
-      vm.endTime = undefined;
-      vm.description = undefined;
-      document.getElementById('id01').style.display='none'
     }
   }
 
   function dateFormat(date, time){
-    var a = date.split('/');
+    var months = { 'January': '01', 'February': '02', 'March': '03', 'April': '04', 'May': '05', 'June': '06', 'July': '07', 'August': '08', 'September': '09', 'October': '10', 'November': '11', 'December': '12' };
+    console.log(date);
+    var a = date.split(' ');
     var c = a.pop();
     var b = a.pop();
-    var newDate = c + '-' + b + '-' + a;
+    var monthName = b.substring(0, b.length - 1);
+    var monthNumber = months[monthName];
+    console.log(monthNumber);
+    var newDate = c + '-' + monthNumber + '-' + a;
     var newTime = 'T' + time + ':00-0500';
     var newFormat = newDate + newTime;
     return newFormat;
