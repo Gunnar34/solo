@@ -3,24 +3,17 @@
       <input ng-model="fb.location" id="location" type="text" class="in validate Mat-input">
       <label class="inLabel" for="location">Enter Address</label>
   </div>
-  <div class="col l3 s4">
-    <div class="input-field">
-      <select ng-model="fb.timeSelect" material-select>
-          <option value="" disabled selected>Choose your option</option>
-          <option value="86400" >one day from now</option>
-          <option value="172800" >Two days from now</option>
-          <option value="259200" >Three days from now</option>
-          <option value="345600" >Four days from now</option>
-          <option value="432000" >Five days from now</option>
-          <option value="604800">One Week from now</option>
-          <option value="1209600">Two Weeks from now</option>
-          <option value="2629746">One Month from now</option>
-      </select>
-      <label class="inLabel" for="">Events on</label>
-    </div>
+  <div class="input-field col l3 s4">
+    <label class="inLabel" for="fbTime">Events on</label>
+    <input input-date
+        class="placeInput"
+        type="text"
+        name="created"
+        id="fbTime"
+        ng-model="fb.timeSelect" />
   </div>
   <div class="col l3 s4 offset-s4 center-align">
-    <button class="in btn grey" ng-click="fb.getLocation()">Find Events</button>
+    <button class="in btn light-blue lighten-4" ng-click="fb.getLocation()">Find Events</button>
   </div>
 </div>
 <div ng-if="fb.loading" class="center-align">

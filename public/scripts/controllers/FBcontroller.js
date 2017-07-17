@@ -39,10 +39,7 @@ app.controller('facebookController', facebookController);
         var time2 = timestamp + 86400;
       }
       else {
-        var now = new Date();
-        var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        var timestamp = startOfDay / 1000;
-        var time = timestamp + Number(vm.timeSelect);
+        var time = (new Date(vm.timeSelect)) / 1000
         var time2 = time + 86400;
       }
       if (lat === undefined || lon === undefined) {

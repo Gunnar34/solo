@@ -193,7 +193,7 @@ function googleMap(locService, $interval, $http){
       '<p class="flow-text placeText">Rating: ' + place.rating + '</p>' +
       '<p class="flow-text placeText">Address: ' + place.vicinity + '</p>' +
       '<a href = "http://www.google.com/search?q=' + place.name + '" target="_blank"><p class="flow-text placeText">Link in google</p></a>' +
-      '<br><button onclick="document.getElementById(\'id01\').style.display=\'block\'" class="btn">Save</button><br></div>');
+      '<br><button onclick="document.getElementById(\'id01\').style.display=\'block\'" class="btn blue">Save</button><br></div>');
       infowindow.open(map, this);
     });
   }

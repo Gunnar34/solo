@@ -54,6 +54,7 @@ html {
 #header {
   color: #FFFFFF;
   text-align: center;
+  font-family: 'Playfair Display', serif;
 }
 
 .topButton {
@@ -384,6 +385,18 @@ blockquote{
 .select-dropdown li.disabled, .select-dropdown li.disabled>span, .select-dropdown li.optgroup {
   color: rgba(0,0,0,0.3) !important;
   background-color: transparent !important;
+}
+
+.picker__date-display, .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+  background-color: #03A9F4 !important;
+}
+
+.picker__weekday-display {
+  background-color: #0288D1 !important;
+}
+
+.picker__day.picker__day--today, .picker__close, .picker__today {
+  color: #B3E5FC !important;
 }
 
 @media screen and (max-width: 990px) {
